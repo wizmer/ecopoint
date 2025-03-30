@@ -44,59 +44,116 @@
 
 <!-- Toolbar -->
 <div class="button-bar">
-	<div class="buttons has-addons is-pulled-right">
+	<div class="buttons is-pulled-right">
 		<button
-			on:click={() => window.open('https://www.camptocamp.org/articles/151910', '_blank')}
+			type="button"
+			on:click|stopPropagation={() =>
+				window.open('https://www.camptocamp.org/articles/151910', '_blank')}
 			title="Help"
 		>
 			<i class="fa fa-question-circle" />
 		</button>
 		<span>&nbsp;</span>
 		<button
-			on:click={() => (fullScreen = !fullScreen)}
+			type="button"
+			on:click|stopPropagation={() => (fullScreen = !fullScreen)}
 			title={fullScreen ? 'Leave fullscreen' : 'Toggle fullscreen'}
 		>
 			<i class={'fa ' + (fullScreen ? 'fa-compress' : 'fa-expand')} />
 		</button>
 	</div>
-	<div class="buttons has-addons">
-		<button on:click={handleBold} disabled={preview} title="strong text">
+	<div class="buttons">
+		<button
+			type="button"
+			on:click|stopPropagation={handleBold}
+			disabled={preview}
+			title="strong text"
+		>
 			<i class="fa fa-bold" />
 		</button>
-		<button on:click={handleItalic} disabled={preview} title="emphasized text">
+		<button
+			type="button"
+			on:click|stopPropagation={handleItalic}
+			disabled={preview}
+			title="emphasized text"
+		>
 			<i class="fa fa-italic" />
 		</button>
-		<button on:click={handleHeading} disabled={preview} title="Heading">
+		<button
+			type="button"
+			on:click|stopPropagation={handleHeading}
+			disabled={preview}
+			title="Heading"
+		>
 			<i class="fa fa-heading" />
 		</button>
 		<span>&nbsp;</span>
-		<button on:click={handleImage} disabled={preview} title="Insert image">
+		<button
+			type="button"
+			on:click|stopPropagation={handleImage}
+			disabled={preview}
+			title="Insert image"
+		>
 			<i class="fa fa-image" />
 		</button>
-		<button on:click={handleLink} disabled={preview} title="Insert link">
+		<button
+			type="button"
+			on:click|stopPropagation={handleLink}
+			disabled={preview}
+			title="Insert link"
+		>
 			<i class="fa fa-link" />
 		</button>
-		<button on:click={handleEmoji} disabled={preview} title="Insert emoji">
+		<button
+			type="button"
+			on:click|stopPropagation={handleEmoji}
+			disabled={preview}
+			title="Insert emoji"
+		>
 			<i class="fa fa-grin" />
 		</button>
 		<span>&nbsp;</span>
-		<button on:click={handleHashtag} disabled={preview} title="Pitch description tag">
+		<button
+			type="button"
+			on:click|stopPropagation={handleHashtag}
+			disabled={preview}
+			title="Pitch description tag"
+		>
 			<i class="fa fa-hashtag" />
 		</button>
-		<button on:click={handleListUl} disabled={preview} title="Unordered list">
+		<button
+			type="button"
+			on:click|stopPropagation={handleListUl}
+			disabled={preview}
+			title="Unordered list"
+		>
 			<i class="fa fa-list-ul" />
 		</button>
-		<button on:click={handleListOl} disabled={preview} title="Ordered list">
+		<button
+			type="button"
+			on:click|stopPropagation={handleListOl}
+			disabled={preview}
+			title="Ordered list"
+		>
 			<i class="fa fa-list-ol" />
 		</button>
-		<button on:click={handleCode} disabled={preview} title="Unformatted text">
+		<button
+			type="button"
+			on:click|stopPropagation={handleCode}
+			disabled={preview}
+			title="Unformatted text"
+		>
 			<i class="fa fa-code" />
 		</button>
-		<button on:click={handleQuote} disabled={preview} title="Quote">
+		<button type="button" on:click|stopPropagation={handleQuote} disabled={preview} title="Quote">
 			<i class="fa fa-comment" />
 		</button>
 		<span>&nbsp;</span>
-		<button on:click={() => (preview = !preview)} title={preview ? 'Back to code' : 'Preview'}>
+		<button
+			type="button"
+			on:click|stopPropagation={() => (preview = !preview)}
+			title={preview ? 'Back to code' : 'Preview'}
+		>
 			<i class={'fa ' + (preview ? 'fa-code' : 'fa-eye')} />
 			{preview ? ' Back to code' : ' Preview'}
 		</button>
@@ -111,7 +168,6 @@
 	</style>
 {/if}
 
-<h1>Markdown Editor</h1>
 <textarea bind:value={markdown} placeholder={content} class:fullscreen={fullScreen} />
 {#if !preview}
 	<div class="preview">{@html marked(markdown)}</div>
@@ -119,6 +175,7 @@
 
 <style>
 	.button-bar {
+		background: #e1e1e1;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -129,7 +186,6 @@
 		background: none;
 		border: 1px solid #ccc;
 		padding: 0.5rem;
-		margin-right: 0.2rem;
 		cursor: pointer;
 	}
 
@@ -167,12 +223,5 @@
 		height: 75%;
 		padding: 2rem;
 		border-top: solid 2px #888;
-	}
-
-	h1 {
-		background: #e1e1e1;
-		margin: 0;
-		padding: 0.8rem;
-		font-size: 1.2rem;
 	}
 </style>
