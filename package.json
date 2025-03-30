@@ -6,7 +6,8 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test": "vitest run"
+		"test": "vitest run",
+	    "deploy": "gh-pages -d build"
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.5.3",
@@ -33,6 +34,7 @@
 		"eslint-plugin-svelte": "^2.43.0",
 		"eslint-plugin-unused-imports": "^3.1.0",
 		"flowbite": "^2.5.1",
+		"gh-pages": "^6.3.0",
 		"inflection": "^3.0.0",
 		"jsdom": "^24.0.0",
 		"luxon": "^3.4.4",
@@ -54,35 +56,13 @@
 	"type": "module",
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^6.7.2",
-		"@google-cloud/bigquery": "^7.9.2",
-		"@google-cloud/scheduler": "^4.3.0",
-		"@google-cloud/tasks": "^5.5.2",
-		"@googlemaps/js-api-loader": "^1.16.2",
-		"@tanstack/svelte-table": "^8.17.3",
-		"@types/pg": "^8.11.5",
-		"axios": "^1.6.8",
-		"csv-parser": "^3.2.0",
-		"d3": "^7.9.0",
-		"dayjs": "^1.11.13",
-		"deepmerge": "^4.3.1",
-		"file-saver": "^2.0.5",
-		"firebase": "^11.1.0",
-		"firebase-admin": "^13.0.1",
-		"generate-password": "^1.7.1",
-		"jsonwebtoken": "^9.0.2",
-		"lodash-es": "^4.17.21",
-		"moment": "^2.30.1",
+		"@tiptap/core": "^2.11.7",
+		"@tiptap/extension-bubble-menu": "^2.11.7",
+		"@tiptap/pm": "^2.11.7",
+		"@tiptap/starter-kit": "^2.11.7",
 		"npm": "^10.8.3",
-		"pg-hstore": "^2.3.4",
-		"sequelize": "^6.37.3",
-		"sequelize-auto": "^0.8.8",
-		"sequelize-typescript": "^2.1.6",
 		"svelte-fa": "^4.0.3",
-		"svelte-plotly.js": "^0.3.2",
-		"svelty-picker": "^5.2.0",
-		"tailwind-merge": "^2.5.2",
 		"vite-node": "^1.6.0",
-		"vitest-canvas-mock": "^0.3.3",
-		"winston": "^3.14.2"
+		"vitest-canvas-mock": "^0.3.3"
 	}
 }

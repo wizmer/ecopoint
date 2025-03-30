@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MainContent from '$lib/MainContent.svelte';
+	import Tiptap from '$lib/Tiptap.svelte';
 </script>
 
 <MainContent>
@@ -39,10 +40,10 @@
 							<option value="multi-pitch">Multi-pitch</option>
 						</select>
 						<span class="text-nowrap">trip to</span>
-						<input class="input" type="text" placeholder="Climbing area (country)" />
+						<input class="input" type="text" placeholder="Climbing area" />
 						<span>by</span>
 						<select class="input">
-							<option disabled selected>Please select your transport method</option>
+							<option disabled selected>Transport method</option>
 							<option value="train">Train</option>
 							<option value="bus">Bus</option>
 							<option value="bike">Bike</option>
@@ -52,36 +53,52 @@
 					</div>
 				</label>
 				<label class="label mt-2">
-					<span>Summary</span>
-					<textarea class="textarea" placeholder="Summary" />
+					<div>Summary</div>
+					<Tiptap
+						content="Describe the area, or the crag, or why you like the area/crag. Just what feels right for you! Please use no more than ~100 words."
+					/>
 				</label>
 				<label class="label mt-2">
-					<span>How to get there</span>
-					<textarea class="textarea" placeholder="How to get there" />
+					<div>How to get there</div>
+					<Tiptap
+						content="Journey from your starting point to where you stayed overnight (e.g. which train(s), durations, where to change). If you travelled by bike, provide details about bike transport and the cycle path."
+					/>
 				</label>
 				<label class="label mt-2">
-					<span>Where to stay</span>
-					<textarea class="textarea" placeholder="Where to stay" />
+					<div>Komoot</div>
+					<Tiptap
+						content="If you have a Komoot account, you can embed your journey here. Please ensure it’s visible for everyone and in English."
+					/>
 				</label>
 				<label class="label mt-2">
-					<span>How to reach the crag(s)</span>
-					<textarea class="textarea" placeholder="How to reach the crag(s)" />
+					<div>Where to stay</div>
+					<Tiptap
+						content="Add information about your accommodation (incl. website) and other recommended accommodations."
+					/>
 				</label>
 				<label class="label mt-2">
-					<span>Tips</span>
-					<textarea class="textarea" placeholder="Tips" />
+					<div>How to reach the crag(s)</div>
+					<Tiptap
+						content="Starting from your accommodation, describe how long it takes and how to get there (bus, walking, bike, train)."
+					/>
 				</label>
 				<label class="label mt-2">
-					<span>How to book the trip</span>
-					<textarea class="textarea" placeholder="How to book the trip" />
+					<div>Tips</div>
+					<Tiptap
+						content="Information about the nearest supermarket, restday activities (how to get there & duration), other climbing styles, nearest guidebook shop, etc."
+					/>
+				</label>
+				<label class="label mt-2">
+					<div>How to book the trip</div>
+					<Tiptap content="Websites and info on how to book the public transport." />
 				</label>
 			</fieldset>
 
 			<fieldset>
 				<legend class="font-semibold">Author Bio</legend>
 				<label class="label mt-2">
-					<span>About the author(s)</span>
-					<textarea class="textarea" placeholder="About the author(s)" />
+					<div>About the author</div>
+					<Tiptap content="You can add your name and a link to your social account/website." />
 				</label>
 			</fieldset>
 
