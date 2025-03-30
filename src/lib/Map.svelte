@@ -1,146 +1,26 @@
 <script lang="ts">
 	import { Loader } from '@googlemaps/js-api-loader';
-	import { modeCurrent } from '@skeletonlabs/skeleton';
-	import { createEventDispatcher, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 
 	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import { PUBLIC_GOOGLE_MAPS_API_KEY } from '$env/static/public';
 
-	export let clickable = false;
-	export let markers = [];
-	export let map_center = { lat: 46.712724725936106, lng: 13.00700389666638 };
+	export let inputClasses;
+	export let markers: any[] = [];
+	export let map_center = { lat: 48.19450074661718, lng: 13.211331260173694 };
+	export let zoom = 5;
+	export let gestureHandling = 'auto';
+	export const input_search = writable('');
 
-	const dispatch = createEventDispatcher();
-
-	let unsubscribers: any[] = [];
-
-	export let inputClasses = 'h-[500px]';
 	let container: any;
-	let zoom = 5;
+	let map: any;
 	let google: any;
 	let gmap_markers: google.maps.Marker[] = [];
-	let clicked_marker: google.maps.Marker | null = null;
-	let search_marker: google.maps.Marker | null = null;
 
-	let styles = {
-		dark: [
-			{ elementType: 'geometry', stylers: [{ color: '#242f3e' }] },
-			{ elementType: 'labels.text.stroke', stylers: [{ color: '#242f3e' }] },
-			{ elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
-			{
-				featureType: 'administrative.locality',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#d59563' }]
-			},
-			{
-				featureType: 'poi',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#d59563' }]
-			},
-			{
-				featureType: 'poi.park',
-				elementType: 'geometry',
-				stylers: [{ color: '#263c3f' }]
-			},
-			{
-				featureType: 'poi.park',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#6b9a76' }]
-			},
-			{
-				featureType: 'road',
-				elementType: 'geometry',
-				stylers: [{ color: '#38414e' }]
-			},
-			{
-				featureType: 'road',
-				elementType: 'geometry.stroke',
-				stylers: [{ color: '#212a37' }]
-			},
-			{
-				featureType: 'road',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#9ca5b3' }]
-			},
-			{
-				featureType: 'road.highway',
-				elementType: 'geometry',
-				stylers: [{ color: '#746855' }]
-			},
-			{
-				featureType: 'road.highway',
-				elementType: 'geometry.stroke',
-				stylers: [{ color: '#1f2835' }]
-			},
-			{
-				featureType: 'road.highway',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#f3d19c' }]
-			},
-			{
-				featureType: 'transit',
-				elementType: 'geometry',
-				stylers: [{ color: '#2f3948' }]
-			},
-			{
-				featureType: 'transit.station',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#d59563' }]
-			},
-			{
-				featureType: 'water',
-				elementType: 'geometry',
-				stylers: [{ color: '#17263c' }]
-			},
-			{
-				featureType: 'water',
-				elementType: 'labels.text.fill',
-				stylers: [{ color: '#515c6d' }]
-			},
-			{
-				featureType: 'water',
-				elementType: 'labels.text.stroke',
-				stylers: [{ color: '#17263c' }]
-			}
-		],
-		light: []
-	};
-
-	export let execute_search = () => {
-		const request = {
-			// query: $input_search.value,
-			fields: ['name', 'geometry']
-		};
-
-		const service = new google.maps.places.PlacesService(map);
-		service.findPlaceFromQuery(
-			request,
-			(
-				results: google.maps.places.PlaceResult[],
-				status: google.maps.places.PlacesServiceStatus
-			) => {
-				if (
-					status === google.maps.places.PlacesServiceStatus.OK &&
-					results &&
-					results[0]?.geometry?.location
-				) {
-					const coordinates = results[0].geometry.location;
-					if (search_marker) {
-						search_marker.setMap(null);
-					}
-					search_marker = new google.maps.Marker({
-						position: coordinates,
-						map
-					});
-					clicked_marker?.setMap(map);
-					map.setCenter(coordinates);
-				}
-			}
-		);
-	};
-
-	let map;
-	async function loadMap(lightMode) {
+	onMount(async () => {
 		if (!browser) return;
 
 		const loader = new Loader({
@@ -152,67 +32,57 @@
 		google = await loader.load();
 
 		const { Map } = await google.maps.importLibrary('maps');
+		const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary('marker');
 
-		const style = styles[lightMode ? 'light' : 'dark'];
 		map = new Map(container, {
 			zoom,
 			center: map_center,
-			styles: style
+			mapId: 'DEMO_MAP_ID', // Map ID is required for advanced markers.
+			gestureHandling
 		});
 
-		map.addListener('click', (e: any) => {
-			const { lat: get_lat, lng: get_lng } = e.latLng;
-			const lat = get_lat();
-			const lon = get_lng();
+		const service = new google.maps.places.PlacesService(map);
 
-			if (clickable) {
-				if (clicked_marker) {
-					clicked_marker.setMap(null);
-				}
-				clicked_marker = new google.maps.Marker({
-					position: { lat, lng: lon },
-					map,
-					icon: {
-						url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-					}
-				});
-				clicked_marker?.setMap(map);
-			}
+		let associations = Array.from(new Set(markers.map((marker) => marker.association)));
 
-			dispatch('click', { lat, lon });
-		});
+		let colors = [
+			'#eb3040',
+			'#eb6949',
+			'#eb8d27',
+			'#988921',
+			'#85ab71',
+			'#5e8d6f',
+			'#58b69e',
+			'#c87499',
+			'#cb4d8e'
+		];
 
 		for (let marker of markers) {
-			gmap_markers.push(
-				new google.maps.Marker({
-					position: marker,
-					map,
-					title: marker.title
-				})
-			);
+			let index = associations.indexOf(marker.association);
+			const pinBackground = new PinElement({
+				background: colors[index],
+				glyphColor: 'white',
+				borderColor: colors[index]
+			});
+
+			let map_marker = new AdvancedMarkerElement({
+				position: marker,
+				map,
+				title: `#${marker.index} - ${marker.title}`,
+				content: pinBackground.element
+			});
+			gmap_markers.push(map_marker);
+
+			map_marker.addListener('click', () => {
+				goto(`${$page.url}/${marker.index}`);
+			});
 		}
 
-		if (gmap_markers.length) {
-			var bounds = new google.maps.LatLngBounds();
-			for (let marker of gmap_markers) {
-				bounds.extend(marker.getPosition());
-				marker.setMap(map);
-			}
-			map.fitBounds(bounds);
+		if (!$input_search) {
+			return;
 		}
-
-		// if (!$input_search) {
-		// 	return;
-		// }
-		//const searchBox = new google.maps.places.SearchBox($input_search);
-	}
-
-	onDestroy(() => {
-		unsubscribers.forEach((un) => un());
+		const searchBox = new google.maps.places.SearchBox($input_search);
 	});
-
-	$: map = loadMap($modeCurrent);
-	$: console.log('map', map);
 </script>
 
 <div class={inputClasses} bind:this={container} />
