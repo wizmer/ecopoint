@@ -13,12 +13,12 @@
 					<span>Email</span>
 					<input id="email" class="input" type="email" aria-required="true" />
 				</label>
-				<div class="flex flex-row gap-2 mt-2">
-					<label class="label" for="firstName">
+				<div class="flex flex-row flex-wrap gap-2 mt-2">
+					<label class="label grow" for="firstName">
 						<span>First Name</span>
 						<input id="firstName" class="input" type="text" />
 					</label>
-					<label class="label" for="lastName">
+					<label class="label grow" for="lastName">
 						<span>Last Name</span>
 						<input id="lastName" class="input" type="text" />
 					</label>
@@ -29,7 +29,7 @@
 				<legend class="font-semibold">Trip Details</legend>
 				<label class="label mt-2">
 					<div>Title</div>
-					<div class="flex items-center gap-2">
+					<div class="flex flex-wrap items-center gap-2">
 						<select id="climbingCategory" class="input" aria-label="Climbing category">
 							<option disabled selected>Climbing category</option>
 							<option value="climbing">Climbing</option>
@@ -144,7 +144,9 @@
 				</label>
 			</fieldset>
 
-			<button type="submit" class="btn btn-xl variant-filled-primary self-end mb-10">Submit</button>
+			<button type="submit" class="btn btn-xl variant-filled-primary self-center mb-10"
+				>Submit</button
+			>
 		</form>
 	</section>
 </div>

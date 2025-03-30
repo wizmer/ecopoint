@@ -44,7 +44,7 @@
 
 <!-- Toolbar -->
 <div class="button-bar">
-	<div class="buttons is-pulled-right">
+	<div class="buttons">
 		<button
 			type="button"
 			on:click|stopPropagation={() =>
@@ -177,10 +177,19 @@
 	.button-bar {
 		@apply bg-surface-200;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.25rem 0.5rem; /* Reduced padding */
-		margin-bottom: 0.25rem; /* Reduced margin */
+		padding: 0.25rem 0.5rem;
+		margin-bottom: 0.25rem;
+
+		row-gap: 0.25rem;
+	}
+
+	.buttons {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: 0.25rem;
 	}
 
 	.buttons button {
