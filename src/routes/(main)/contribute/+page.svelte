@@ -71,13 +71,6 @@
 						content="Journey from your starting point to where you stayed overnight (e.g. which train(s), durations, where to change). If you travelled by bike, provide details about bike transport and the cycle path."
 					/>
 				</label>
-				<label class="label mt-2" for="komoot">
-					<div>Komoot</div>
-					<Tiptap
-						id="komoot"
-						content="If you have a Komoot account, you can embed your journey here. Please ensure it’s visible for everyone and in English."
-					/>
-				</label>
 				<label class="label mt-2" for="whereToStay">
 					<div>Where to stay</div>
 					<Tiptap
@@ -109,6 +102,38 @@
 			</fieldset>
 
 			<fieldset>
+				<legend class="font-semibold">Links</legend>
+				<label class="label mt-2" for="publicTransportLinks">
+					<div>Public Transport Links</div>
+					<textarea
+						id="publicTransportLinks"
+						class="input"
+						placeholder="Add public transport links here..."
+					/>
+				</label>
+				<label class="label mt-2" for="gpxUpload">
+					<div>GPX Upload</div>
+					<input id="gpxUpload" class="input" type="file" accept=".gpx" multiple />
+				</label>
+
+				<label class="label mt-2" for="komoot">
+					<div>Komoot</div>
+					<Tiptap
+						id="komoot"
+						content="If you have a Komoot account, you can embed your journey here. Please ensure it’s visible for everyone and in English."
+					/>
+				</label>
+				<label class="label mt-2" for="miscLinks">
+					<div>Misc. Links</div>
+					<textarea
+						id="miscLinks"
+						class="input"
+						placeholder="Add any miscellaneous links here..."
+					/>
+				</label>
+			</fieldset>
+
+			<fieldset>
 				<legend class="font-semibold">Author Bio</legend>
 				<label class="label mt-2" for="aboutAuthor">
 					<div>About the author</div>
@@ -119,20 +144,25 @@
 				</label>
 			</fieldset>
 
-			<button class="btn variant-filled-primary self-start">Submit</button>
+			<button type="submit" class="btn btn-xl variant-filled-primary self-end mb-10">Submit</button>
 		</form>
 	</section>
 </div>
 
 <style lang="postcss">
 	.wrap {
-		max-width: 1200px;
+		@apply max-w-screen-xl;
 	}
 	fieldset {
-		@apply border p-4 w-full;
+		@apply border p-4 w-full mb-6; /* Added bottom margin */
 	}
+
 	/* Improve label text appearance only to the first div */
 	.label > div:first-of-type {
 		@apply font-bold text-lg text-gray-800;
+	}
+
+	legend {
+		@apply font-semibold text-xl mb-2 text-secondary-500;
 	}
 </style>
