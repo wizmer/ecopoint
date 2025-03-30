@@ -6,8 +6,8 @@ export const appTheme: CustomThemeConfig = {
 	name: 'app-theme',
 	properties: {
 		// =~= Theme Properties =~=
-		'--theme-font-family-base': `"Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif'`,
-		'--theme-font-family-heading': `"Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif`,
+		'--theme-font-family-base': "Libre Franklin",
+		'--theme-font-family-heading': "Libre Franklin",
 		'--theme-font-color-base': '51 51 51',
 		'--theme-font-color-dark': '0 0 0',
 		'--theme-rounded-base': '1px',

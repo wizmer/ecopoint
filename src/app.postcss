@@ -5,10 +5,6 @@
 @tailwind utilities;
 @tailwind variants;
 
-html,
-body {
-	font-family: 'General Sans', sans-serif;
-}
 
 body {
 	@apply bg-white;
@@ -27,4 +23,16 @@ body {
 	clear: both;
 	content: '';
 	display: block;
+}
+
+
+@font-face {
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 500;
+	src: url('/fonts/libre-franklin/static/LibreFranklin-Regular.ttf') format('truetype'),
+		/* Super Modern Browsers */ url('/fonts/libre-franklin/.woff2') format('woff2'),
+		/* Super Modern Browsers */ url('/fonts/libre-franklin/.woff') format('woff'),
+		/* Modern Browsers */ url('/fonts/libre-franklin/.ttf') format('truetype'),
+		/* Safari, Android, iOS */ url('/fonts/libre-franklin/.svg#LibreFranklin') format('svg'); /* Legacy iOS */
 }
