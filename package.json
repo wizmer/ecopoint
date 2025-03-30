@@ -7,7 +7,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "vitest run",
-		"deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d build -t"
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.5.3",
