@@ -1,8 +1,8 @@
 <script lang="ts">
 </script>
 
-<section>
-	<h1>Resources</h1>
+<section class="wrap">
+	<h1 class="h1">Resources</h1>
 
 	<div class="subsection">
 		<h2>Tips & Tricks</h2>

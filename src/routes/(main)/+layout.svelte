@@ -100,6 +100,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
+		margin-top: 60px;
 	}
 
 	@media (min-width: 480px) {

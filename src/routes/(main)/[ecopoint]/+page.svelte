@@ -488,9 +488,6 @@
 		font-size: 2em;
 		padding-bottom: 20px;
 	}
-	.wrap {
-		max-width: 1200px;
-	}
 	#primary {
 		float: left;
 		width: 58%;

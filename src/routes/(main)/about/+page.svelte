@@ -61,21 +61,16 @@
 							under the name <em>ecopoint</em> to raise awareness and promote sustainable climbing.
 						</p>
 					</div>
-					<!-- .entry-content -->
 				</div>
-				<!-- .wrap -->
 			</div>
-			<!-- .panel-content -->
 
 			<div
 				class="panel-image"
 				style="background-image: url(https://ecopointclimbing.com/wp-content/uploads/2022/12/Lena-Muller-biking_-c-Ortovox-2000x1200.jpg);"
 			>
-				<div class="panel-image-prop" style="padding-top: 60%"></div>
+				<div class="panel-image-prop" style="padding-top: 60%" />
 			</div>
-			<!-- .panel-image -->
 		</article>
-		<!-- #post-## -->
 
 		<article
 			id="mission-founder"
@@ -86,7 +81,6 @@
 					<header class="entry-header">
 						<h2 class="entry-title">Mission &amp; Founder</h2>
 					</header>
-					<!-- .entry-header -->
 
 					<div class="entry-content">
 						<p>
@@ -112,21 +106,16 @@
 							>.
 						</p>
 					</div>
-					<!-- .entry-content -->
 				</div>
-				<!-- .wrap -->
 			</div>
-			<!-- .panel-content -->
 
 			<div
 				class="panel-image"
 				style="background-image: url(https://ecopointclimbing.com/wp-content/uploads/2022/12/2_Zugfahren1-2000x1200.jpg);"
 			>
-				<div class="panel-image-prop" style="padding-top: 60%"></div>
+				<div class="panel-image-prop" style="padding-top: 60%" />
 			</div>
-			<!-- .panel-image -->
 		</article>
-		<!-- #post-## -->
 
 		<article
 			id="support"
@@ -137,7 +126,6 @@
 					<header class="entry-header">
 						<h2 class="entry-title">Support</h2>
 					</header>
-					<!-- .entry-header -->
 
 					<div class="entry-content">
 						<h5 class="wp-block-heading has-black-color has-text-color">
@@ -190,14 +178,8 @@
 							Thanks to all the authors who have already contributed their ecopoint trips.
 						</p>
 					</div>
-					<!-- .entry-content -->
 				</div>
-				<!-- .wrap -->
 			</div>
-			<!-- .panel-content -->
 		</article>
-		<!-- #post-## -->
 	</main>
-	<!-- #main -->
 </div>
-<!-- #primary -->

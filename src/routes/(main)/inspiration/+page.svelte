@@ -27,7 +27,7 @@
 		<main id="main" class="site-main">
 			<section>
 				<h1 class="h1">Inspiration</h1>
-				<p>Get insipired by Ecopoint Films</p>
+				<p class=" my-8 text-lg">Get insipired by Ecopoint Films</p>
 
 				<div class="grid grid-cols-2 gap-2">
 					{#each urls as url}

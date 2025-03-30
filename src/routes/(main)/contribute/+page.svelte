@@ -152,9 +152,6 @@
 </div>
 
 <style lang="postcss">
-	.wrap {
-		@apply max-w-screen-xl;
-	}
 	fieldset {
 		@apply border p-4 w-full mb-6; /* Added bottom margin */
 	}

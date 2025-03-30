@@ -89,11 +89,8 @@
 							under the name <em>ecopoint</em> to raise awareness and promote sustainable climbing.
 						</p>
 					</div>
-					<!-- .entry-content -->
 				</div>
-				<!-- .wrap -->
 			</div>
-			<!-- .panel-content -->
 
 			<div
 				class="panel-image"
@@ -101,9 +98,7 @@
 			>
 				<div class="panel-image-prop" style="padding-top: 60%" />
 			</div>
-			<!-- .panel-image -->
 		</article>
-		<!-- #post-## -->
 
 		<article
 			id="mission-founder"
@@ -114,7 +109,6 @@
 					<header class="entry-header">
 						<h2 class="entry-title">Mission &amp; Founder</h2>
 					</header>
-					<!-- .entry-header -->
 
 					<div class="entry-content">
 						<p>
@@ -140,11 +134,8 @@
 							>.
 						</p>
 					</div>
-					<!-- .entry-content -->
 				</div>
-				<!-- .wrap -->
 			</div>
-			<!-- .panel-content -->
 
 			<div
 				class="panel-image"
@@ -152,9 +143,7 @@
 			>
 				<div class="panel-image-prop" style="padding-top: 60%" />
 			</div>
-			<!-- .panel-image -->
 		</article>
-		<!-- #post-## -->
 
 		<article
 			id="support"
@@ -165,7 +154,6 @@
 					<header class="entry-header">
 						<h2 class="entry-title">Support</h2>
 					</header>
-					<!-- .entry-header -->
 
 					<div class="entry-content">
 						<h5 class="wp-block-heading has-black-color has-text-color">
@@ -218,18 +206,11 @@
 							Thanks to all the authors who have already contributed their ecopoint trips.
 						</p>
 					</div>
-					<!-- .entry-content -->
 				</div>
-				<!-- .wrap -->
 			</div>
-			<!-- .panel-content -->
 		</article>
-		<!-- #post-## -->
 	</main>
-	<!-- #main -->
 </div>
-
-<!-- #primary -->
 
 <style lang="postcss">
 	.bg-img-hero {
