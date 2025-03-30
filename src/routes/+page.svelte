@@ -22,7 +22,7 @@
 				<i class="fa-solid fa-earth-europe" />
 			</div>
 			<input class="input w-full" type="search" placeholder="Search..." />
-			<button class="btn variant-filled-secondary">Search</button>
+			<a href={routes.map} class="btn variant-filled-secondary">Search</a>
 		</div>
 
 		<!-- End Buttons -->

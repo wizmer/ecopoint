@@ -6,4 +6,5 @@ export const routes = {
 	about: `${base}/about`,
 	inspiration: `${base}/inspiration`,
 	resources: `${base}/resources`,
+	map: `${base}/map`,
 };

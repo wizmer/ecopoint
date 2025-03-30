@@ -66,15 +66,39 @@
 			});
 
 			let map_marker = new AdvancedMarkerElement({
-				position: marker,
+				position: marker.destination,
 				map,
 				title: `#${marker.index} - ${marker.title}`,
 				content: pinBackground.element
 			});
 			gmap_markers.push(map_marker);
 
-			map_marker.addListener('click', () => {
+			map_marker.addListener('gmp-click', () => {
 				goto(`${$page.url}/${marker.index}`);
+			});
+		}
+
+		for (const marker of markers) {
+			const arrowSymbol = {
+				path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+				scale: 2,
+				strokeColor: '#000',
+				fillColor: '#000'
+			};
+
+			const arrowLine = new google.maps.Polyline({
+				path: [marker.origin, marker.destination],
+				geodesic: true,
+				strokeColor: '#000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2,
+				icons: [
+					{
+						icon: arrowSymbol,
+						offset: '50%'
+					}
+				],
+				map
 			});
 		}
 
