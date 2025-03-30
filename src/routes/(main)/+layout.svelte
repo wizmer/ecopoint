@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '../Header.svelte';
 
+	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import ecopointLogo from '$lib/images/ecopoint-logo.png';
 	import logoAvdstiftung from '$lib/images/logo-avdstiftung.png';
@@ -21,18 +22,18 @@
 	<main>
 		<div class="navigation-top">
 			<nav>
-				<a href="/">
+				<a href={`${base}/`}>
 					<img src={ecopointLogo} alt="Ecopoint logo" />
 				</a>
-				<a href="/">Home</a>
-				<a href="/ecopoint-trips">Ecopoint Trips</a>
-				<a href="/contribute">Contribute</a>
-				<a href="/resources">Resources</a>
-				<a href="/inspiration">Inspiration</a>
-				<a href="/contact">Contact</a>
+				<a href={`${base}/`}>Home</a>
+				<a href={`${base}/ecopoint-trips`}>Ecopoint Trips</a>
+				<a href={`${base}/contribute`}>Contribute</a>
+				<a href={`${base}/resources`}>Resources</a>
+				<a href={`${base}/inspiration`}>Inspiration</a>
+				<a href={`${base}/contact`}>Contact</a>
 			</nav>
 		</div>
-		{#if page.url.pathname === '/ecopoint-trips'}
+		{#if page.url.pathname === `${base}/ecopoint-trips`}
 			<div class="single-featured-image-header">
 				<img
 					width="1920"

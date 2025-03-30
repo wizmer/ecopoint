@@ -1,6 +1,9 @@
+import { base } from "$app/paths";
+
 export const routes = {
-	featured: '/featured',
-	contribute: '/contribute',
-	inspiration: '/inspiration',
-	resources: '/resources',
+	featured: `${base}/featured`,
+	contribute: `${base}/contribute`,
+	about: `${base}/about`,
+	inspiration: `${base}/inspiration`,
+	resources: `${base}/resources`,
 };

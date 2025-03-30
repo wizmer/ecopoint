@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 </script>
 
 <header>
-	<a href="/" rel="home">Ecopoint Climbing</a>
+	<a href={`${base}/`} rel="home">Ecopoint Climbing</a>
 	<p>Community platform for information and inspiration about sustainable climbing</p>
 </header>
 
