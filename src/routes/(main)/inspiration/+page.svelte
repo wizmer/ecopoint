@@ -1,6 +1,4 @@
 <script lang="ts">
-	import MainContent from '$lib/MainContent.svelte';
-
 	const urls = [
 		'https://www.youtube.com/embed/Hj_uTFNNp6k?si=p-vlYrn7uM7gXjS-',
 		'https://player.vimeo.com/video/690609653?h=2844c4f119',
@@ -24,7 +22,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<MainContent>
+<div class="wrap">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<section>
@@ -41,13 +39,13 @@
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							referrerpolicy="strict-origin-when-cross-origin"
 							allowfullscreen
-						></iframe>
+						/>
 					{/each}
 				</div>
 			</section>
 		</main>
 	</div>
-</MainContent>
+</div>
 
 <style>
 	section div iframe {
