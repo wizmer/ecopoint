@@ -173,20 +173,22 @@
 	<div class="preview">{@html marked(markdown)}</div>
 {/if}
 
-<style>
+<style lang="postcss">
 	.button-bar {
-		background: #e1e1e1;
+		@apply bg-surface-200;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 0.5rem;
+		padding: 0.25rem 0.5rem; /* Reduced padding */
+		margin-bottom: 0.25rem; /* Reduced margin */
 	}
 
 	.buttons button {
 		background: none;
 		border: 1px solid #ccc;
-		padding: 0.5rem;
+		padding: 0.25rem 0.5rem; /* Smaller button padding */
 		cursor: pointer;
+		font-size: 0.9rem; /* Slightly smaller font size */
 	}
 
 	.buttons button:disabled {

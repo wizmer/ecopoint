@@ -1,9 +1,8 @@
 <script lang="ts">
-	import MainContent from '$lib/MainContent.svelte';
 	import Tiptap from '$lib/Tiptap.svelte';
 </script>
 
-<MainContent>
+<div class="wrap">
 	<section>
 		<h1 class="h1 mb-10">Contribute</h1>
 
@@ -12,16 +11,16 @@
 				<legend class="font-semibold">Contributor Info</legend>
 				<label class="label mt-2" for="email">
 					<span>Email</span>
-					<input id="email" class="input" type="email" placeholder="Email" aria-required="true" />
+					<input id="email" class="input" type="email" aria-required="true" />
 				</label>
 				<div class="flex flex-row gap-2 mt-2">
 					<label class="label" for="firstName">
 						<span>First Name</span>
-						<input id="firstName" class="input" type="text" placeholder="First Name" />
+						<input id="firstName" class="input" type="text" />
 					</label>
 					<label class="label" for="lastName">
 						<span>Last Name</span>
-						<input id="lastName" class="input" type="text" placeholder="Last Name" />
+						<input id="lastName" class="input" type="text" />
 					</label>
 				</div>
 			</fieldset>
@@ -29,7 +28,7 @@
 			<fieldset>
 				<legend class="font-semibold">Trip Details</legend>
 				<label class="label mt-2">
-					<span>Title</span>
+					<div>Title</div>
 					<div class="flex items-center gap-2">
 						<select id="climbingCategory" class="input" aria-label="Climbing category">
 							<option disabled selected>Climbing category</option>
@@ -123,15 +122,17 @@
 			<button class="btn variant-filled-primary self-start">Submit</button>
 		</form>
 	</section>
-</MainContent>
+</div>
 
 <style lang="postcss">
+	.wrap {
+		max-width: 1200px;
+	}
 	fieldset {
 		@apply border p-4 w-full;
 	}
-	/* Improve label text appearance */
-	.label span,
-	.label > div {
+	/* Improve label text appearance only to the first div */
+	.label > div:first-of-type {
 		@apply font-bold text-lg text-gray-800;
 	}
 </style>
