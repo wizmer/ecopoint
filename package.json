@@ -60,6 +60,7 @@
 		"@tiptap/extension-bubble-menu": "^2.11.7",
 		"@tiptap/pm": "^2.11.7",
 		"@tiptap/starter-kit": "^2.11.7",
+		"marked": "^15.0.7",
 		"npm": "^10.8.3",
 		"svelte-fa": "^4.0.3",
 		"vite-node": "^1.6.0",
