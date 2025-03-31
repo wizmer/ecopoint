@@ -3,7 +3,7 @@
 </script>
 
 <header>
-	<a href={`${base}/`} rel="home">Ecopoint Climbing</a>
+	<a class="btn" href={`${base}/`} rel="home">Ecopoint Climbing</a>
 	<p>Community platform for information and inspiration about sustainable climbing</p>
 </header>
 

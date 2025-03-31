@@ -10,8 +10,10 @@
 				<p class="text-2xl font-medium">Information and inspiration about sustainable climbing</p>
 			</div>
 			<div class="flex flex-wrap gap-8 justify-center">
-				<a class="cta-button variant-filled-primary" href={routes.featured}>See featured trips</a>
-				<a class="cta-button variant-ringed-primary" href={routes.contribute}>Contribute</a>
+				<a class="cta-button btn variant-filled-primary" href={routes.featured}
+					>See featured trips</a
+				>
+				<a class="cta-button btn variant-ringed-primary" href={routes.contribute}>Contribute</a>
 			</div>
 		</div>
 

@@ -29,7 +29,7 @@
 				<h1 class="h1">Inspiration</h1>
 				<p class=" my-8 text-lg">Get insipired by Ecopoint Films</p>
 
-				<div class="grid grid-cols-2 gap-2">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
 					{#each urls as url}
 						<iframe
 							{width}

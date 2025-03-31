@@ -26,7 +26,7 @@
 				<legend class="font-semibold">Message</legend>
 				<label class="label mt-2" for="message">
 					<div>Your Message</div>
-					<textarea id="message" class="input" />
+					<textarea id="message" class="input" rows="10" />
 				</label>
 			</fieldset>
 
