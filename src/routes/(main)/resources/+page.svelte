@@ -80,6 +80,7 @@
 		line-height: 1.4;
 		margin: 0 0 0.75em;
 		padding: 1.5em 0 0;
+		text-align: center;
 	}
 
 	.subtitle {
@@ -88,9 +89,6 @@
 
 	.subsection {
 		margin: 2rem 0;
-	}
-	.reverse-title {
-		text-align: right;
 	}
 	.book-card {
 		background: #fff;
@@ -106,17 +104,6 @@
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	}
 
-	.book-container {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.book-container.reverse {
-		flex-direction: row-reverse;
-	}
-
 	.book-image {
 		border-radius: 4px;
 		max-width: 100%;
@@ -127,17 +114,35 @@
 		flex: 1;
 	}
 
-	@media (max-width: 600px) {
-		.book-container {
-			flex-direction: column;
-			text-align: center;
-		}
-		.book-details {
-			margin-top: 1rem;
-		}
+	.book-container {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+	}
+	.book-details {
+		margin-top: 1rem;
 	}
 
 	ul {
 		list-style-position: inside;
+	}
+
+	@media (min-width: 600px) {
+		h3 {
+			text-align: left;
+		}
+		.reverse-title {
+			text-align: right;
+		}
+		.book-container {
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.book-container.reverse {
+			flex-direction: row-reverse;
+		}
 	}
 </style>
