@@ -149,8 +149,4 @@
 	.navigation-top .current_page_item > a {
 		color: #767676;
 	}
-
-	.site-content {
-		padding: 2.5em 0 0;
-	}
 </style>

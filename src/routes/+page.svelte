@@ -40,7 +40,6 @@
 					<header class="entry-header">
 						<h2 class="entry-title">What is Ecopoint?</h2>
 					</header>
-					<!-- .entry-header -->
 
 					<div class="entry-content">
 						<p>
