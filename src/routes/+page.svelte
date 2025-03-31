@@ -4,7 +4,7 @@
 
 <div class="bg-img-hero">
 	<div class="flex flex-col w-md-80 w-lg-60 mx-auto text-center justify-evenly h-full gap-8">
-		<div>
+		<div class="cta-group">
 			<div class="mb-5">
 				<h1 class="h1">Ecopoint Climbing</h1>
 				<p class="text-2xl font-medium">Information and inspiration about sustainable climbing</p>
@@ -26,8 +26,6 @@
 			<input class="input w-full" type="search" placeholder="Search..." />
 			<a href={routes.map} class="btn variant-filled-secondary">Search</a>
 		</div>
-
-		<!-- End Buttons -->
 	</div>
 </div>
 
@@ -219,6 +217,9 @@
 		height: 100vh;
 		background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
 			url('$lib/images/cropped-cover-picture-option-C-Arthur-Ternant-1.jpg') center/cover no-repeat;
+	}
+
+	.cta-group {
 		color: #fff;
 	}
 

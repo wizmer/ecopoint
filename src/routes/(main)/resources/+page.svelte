@@ -1,4 +1,55 @@
 <script lang="ts">
+	const books = [
+		{
+			title: 'Tyrol, Austria',
+			image:
+				'https://ecopointclimbing.com/wp-content/uploads/2023/02/@Klimaneutral-Klettern_Guidebook_MOCKUP-10-zu-8-819x1024.jpg',
+			description:
+				'Climate-friendly climbing – A guidebook on how to get to crags by bus, train and bike in Tyrol',
+			authors: 'By Deniz Scheerer & Lena Müller',
+			downloadLink: 'https://lenamueller.com/sustainable-climbing-guide/',
+			linkText: 'Available free of charge online in German'
+		},
+		{
+			title: 'Grenoble, France',
+			image:
+				'https://ecopointclimbing.com/wp-content/uploads/2023/09/10-zu-4-fur-website-fuhrer-frankreich.png',
+			description:
+				'Sustainable climbing in the grenoble area – Multipitch routes between 6a and 7a accessible without a car',
+			authors: 'By Léane Cantin',
+			downloadLink: 'https://drive.google.com/file/d/1vzmAdS11ypFDzUt8x3Vl1wQEo8uEo2VL/view?pli=1',
+			linkText: 'Available free of charge online in French'
+		},
+		{
+			title: 'Southern Frankenjura, Germany',
+			image:
+				'https://ecopointclimbing.com/wp-content/uploads/2024/07/c-Ecopoint-Franken-819x1024.jpeg',
+			description: 'A guide for traveling by train, bus & bike to climbing in Franconia',
+			authors: 'By Ecopoint Frankenjura Initiative',
+			downloadLink:
+				'https://www.ecopoint-frankenjura.de/_files/ugd/cae890_ef82119bb4fe456cba521a64bdb39e76.pdf',
+			linkText: 'Available free of charge online in German'
+		},
+		{
+			title: 'Baden-Württemberg, Germany',
+			image:
+				'https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike.jpg',
+			description: 'Rock & Rail - by train and bike to the crags in Baden-Württemberg',
+			authors: 'By Landesverband Baden-Württemberg DAV',
+			downloadLink:
+				'https://www.alpenverein.de/chameleon/public/86005ead-55bb-5f42-bd7b-de6a5b4180b0/DAV_Rock__Rail_21585.pdf',
+			linkText: 'Available free of charge online in German'
+		},
+		{
+			title: 'Austria',
+			image: 'https://ecopointclimbing.com/wp-content/uploads/2023/09/cut-for-website.jpg',
+			description: 'Mobility Guide Sport Climbing – Alpine Tourism and Mobility',
+			authors: 'By Alpenverein Österreich',
+			downloadLink:
+				'https://www.alpenverein.at/portal_wAssets/img/news/2019/mobilitaetsguide-sportklettern/Mobilitaetsguide-Sportklettern.pdf',
+			linkText: 'Available free of charge online in German'
+		}
+	];
 </script>
 
 <section class="wrap">
@@ -35,12 +86,12 @@
 		<h2 class="subtitle">Ecopoint Guidebooks</h2>
 		<p class="mb-4">Here you find local guidbooks on how crags can be reached by fair means:</p>
 
-		{#each [1, 2, 3, 4] as i, index}
+		{#each books as book, index}
 			<div class="book-card">
-				<h3 class={index % 2 === 1 ? 'reverse-title' : ''}>Tyrol, Austria</h3>
+				<h3 class={index % 2 === 1 ? 'reverse-title' : ''}>{book.title}</h3>
 				<div class={`book-container ${index % 2 === 1 ? 'reverse' : ''}`}>
 					<a
-						href="https://lenamueller.com/sustainable-climbing-guide/"
+						href={book.downloadLink}
 						target="_blank"
 						rel="noreferrer noopener"
 						class="book-image-link"
@@ -48,19 +99,20 @@
 						<img
 							width="222"
 							height="277"
-							src="https://ecopointclimbing.com/wp-content/uploads/2023/02/@Klimaneutral-Klettern_Guidebook_MOCKUP-10-zu-8.jpg"
-							alt="Guidebook Tyrol"
+							src={book.image}
+							alt="Guidebook {book.title}"
 							class="book-image"
 						/>
 					</a>
 					<div class="book-details">
 						<p class="description">
-							Climate-friendly climbing - A guidebook on how to get to crags by bus, train and bike
-							in Tyrol
+							{book.description}
 						</p>
-						<p class="authors">By Deniz Scheerer & Lena Müller</p>
+						<p class="authors">{book.authors}</p>
 						<p class="price">
-							<strong>Available free of charge online in German here.</strong>
+							<a href={book.downloadLink} target="_blank" rel="noreferrer noopener">
+								<strong>{book.linkText}</strong>
+							</a>
 						</p>
 					</div>
 				</div>
@@ -68,6 +120,8 @@
 		{/each}
 	</div>
 </section>
+
+<!-- <img loading="lazy" decoding="async" width="752" height="939" data-attachment-id="481" data-permalink="https://ecopointclimbing.com/resources/rock-rail-c-landesverband-baden-wurttemberg-des-deutschen-alpenvereins-ronald-nordmann-herbstweg-heiko-wiening-bahn-bike/" data-orig-file="https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike.jpg" data-orig-size="752,939" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;Lena M\u00fcller&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1676283614&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="Rock &amp; Rail (c) Landesverband Baden-Württemberg des Deutschen Alpenvereins, Ronald Nordmann (Herbstweg), Heiko Wiening (Bahn &amp; Bike)" data-image-description="" data-image-caption="" data-medium-file="https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike-240x300.jpg" data-large-file="https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike.jpg" src="https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike.jpg" alt="" class="wp-image-481 size-full" srcset="https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike.jpg 752w, https://ecopointclimbing.com/wp-content/uploads/2023/02/Rock-Rail-c-Landesverband-Baden-Wurttemberg-des-Deutschen-Alpenvereins-Ronald-Nordmann-Herbstweg-Heiko-Wiening-Bahn-Bike-240x300.jpg 240w" sizes="auto, (max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px"> -->
 
 <style lang="postcss">
 	h3 {
