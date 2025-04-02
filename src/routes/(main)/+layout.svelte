@@ -56,12 +56,12 @@
 	<hr class="border-t border-black my-4" />
 
 	<footer class="wrap">
-		<div class="flex w-full flex-row justify-around h-[70px]">
-			<img class="object-cover" src={logoDav} alt="Sponsor DAV" />
-			<img class="object-cover" src={logoAvdstiftung} alt="Sponsor Avdstiftung" />
-			<img class="object-cover" src={logoIgklettern} alt="Sponsor Igklettern" />
-			<img class="object-cover" src={logoOrtovox} alt="Sponsor Ortovox" />
-			<img class="object-cover" src={logoPowerbar} alt="Sponsor Powerbar" />
+		<div class="flex w-full flex-row flex-wrap justify-around">
+			<img class="h-[70px] object-cover" src={logoDav} alt="Sponsor DAV" />
+			<img class="h-[70px] object-cover" src={logoAvdstiftung} alt="Sponsor Avdstiftung" />
+			<img class="h-[70px] object-cover" src={logoIgklettern} alt="Sponsor Igklettern" />
+			<img class="h-[70px] object-cover" src={logoOrtovox} alt="Sponsor Ortovox" />
+			<img class="h-[70px] object-cover" src={logoPowerbar} alt="Sponsor Powerbar" />
 		</div>
 	</footer>
 </div>
