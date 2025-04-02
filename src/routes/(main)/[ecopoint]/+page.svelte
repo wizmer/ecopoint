@@ -40,13 +40,11 @@
 				<h2 class="h2">Climbing Facts</h2>
 				<div>
 					<h3>Climbing Type</h3>
-					<p>
-						<span class="ecopoint-climbingType">Trad Climbing</span><span
-							class="ecopoint-climbingType">Sport Climbing</span
-						><span class="ecopoint-climbingType">Bouldering</span><span
-							class="ecopoint-climbingType">Multipitch</span
-						>
-					</p>
+					<div class="flex flex-wrap gap-2">
+						{#each ['Trad Climbing', 'Sport Climbing', 'Bouldering', 'Multipitch'] as type}
+							<span class="ecopoint-climbingType w-fit">{type}</span>
+						{/each}
+					</div>
 
 					<h3>Difficulty</h3>
 					<p><span class="climbing-difficulty">3b-8c+</span></p>
@@ -481,11 +479,9 @@
 <style>
 	.climbing-difficulty,
 	.climbing-rock,
-	.climbing-exposition,
 	.ecopoint-climbingType {
 		margin-right: 0.5em;
 		background: #135199;
-		width: 100%;
 		border-radius: 1em;
 		padding: 0.1em 0.7em;
 		font-size: small;
