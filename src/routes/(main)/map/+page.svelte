@@ -186,5 +186,5 @@
 </script>
 
 <div class="w-full">
-	<Map inputClasses="h-[500px] -z-50" {markers} />
+	<Map inputClasses="h-[500px] z-10" {markers} />
 </div>

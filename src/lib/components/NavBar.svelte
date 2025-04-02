@@ -10,7 +10,7 @@
 
 <AppBar
 	background="bg-token"
-	class="sticky top-0"
+	class="sticky top-0 z-[9998]"
 	padding="p-0"
 	border="border-b border-t border-[#eeeeee]"
 >
@@ -43,8 +43,8 @@
 				<span class="nav-item">Ecopoint Trips</span>
 				<i class="fa-solid fa-caret-down opacity-50" />
 			</button>
-			<div class="card p-4 w-60 bg-token z-50" data-popup="features">
-				<nav class="list-nav z-50">
+			<div class="card p-4 w-60 bg-token z-[9999]" data-popup="features">
+				<nav class="list-nav">
 					<ul>
 						<li>
 							<a href={routes.map}>
