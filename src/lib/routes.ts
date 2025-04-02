@@ -1,7 +1,7 @@
 import { base } from "$app/paths";
 
 export const routes = {
-	home: `${base}`,
+	home: `${base}/`,
 	featured: `${base}/featured`,
 	contribute: `${base}/contribute`,
 	about: `${base}/about`,
