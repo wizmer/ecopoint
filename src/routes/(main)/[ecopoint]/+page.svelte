@@ -262,7 +262,7 @@
 
 					<section>
 						<h2 class="h2">Photo gallery</h2>
-						<div>
+						<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 							<figure
 								class="gallery-item"
 								role="button"
@@ -464,14 +464,6 @@
 					</section>
 				</div>
 			</div>
-
-			<div class="section-inner">
-				<a
-					class="post-edit-link"
-					href="https://ecopointclimbing.com/wp-admin/post.php?post=717&amp;action=edit"
-					>Edit This</a
-				>
-			</div>
 		</article>
 	</main>
 </div>
@@ -514,8 +506,17 @@
 		border: solid #135199 1px;
 	}
 
+	.gallery-item {
+		margin: auto;
+	}
+
 	h2 {
-		margin-top: 3rem;
+		margin-top: 1rem;
 		margin-bottom: 1rem;
+	}
+	@media (min-width: 640px) {
+		h2 {
+			margin-top: 3rem;
+		}
 	}
 </style>

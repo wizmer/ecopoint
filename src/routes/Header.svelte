@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 </script>
 
-<header>
+<header class="hidden lg:block">
 	<a class="btn" href={`${base}/`} rel="home">Ecopoint Climbing</a>
 	<p>Community platform for information and inspiration about sustainable climbing</p>
 </header>

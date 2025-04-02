@@ -56,7 +56,7 @@
 	<hr class="border-t border-black my-4" />
 
 	<footer class="wrap">
-		<div class="flex w-full flex-row flex-wrap justify-around">
+		<div class="flex w-full flex-row flex-wrap gap-y-8 justify-around">
 			<img class="h-[70px] object-cover" src={logoDav} alt="Sponsor DAV" />
 			<img class="h-[70px] object-cover" src={logoAvdstiftung} alt="Sponsor Avdstiftung" />
 			<img class="h-[70px] object-cover" src={logoIgklettern} alt="Sponsor Igklettern" />
