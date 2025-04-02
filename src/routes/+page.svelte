@@ -23,7 +23,7 @@
 			<div class="input-group-shim">
 				<i class="fa-solid fa-earth-europe" />
 			</div>
-			<input class="input w-full" type="search" placeholder="Search..." />
+			<input class="input w-full" type="search" placeholder="Céüse, Kalymnos, Frankenjura..." />
 			<a href={routes.map} class="btn variant-filled-secondary">Search</a>
 		</div>
 	</div>
@@ -74,7 +74,7 @@
 							</figure>
 						</div>
 
-						<h5 class="wp-block-heading has-black-color has-text-color">
+						<h5>
 							<strong>The Story of Ecopoint</strong>
 						</h5>
 
@@ -99,10 +99,7 @@
 			</div>
 		</article>
 
-		<article
-			id="mission-founder"
-			class="twentyseventeen-panel post-146 page type-page status-publish has-post-thumbnail hentry"
-		>
+		<article id="mission-founder">
 			<div class="panel-content">
 				<div class="wrap">
 					<header class="entry-header">
@@ -155,9 +152,7 @@
 					</header>
 
 					<div class="entry-content">
-						<h5 class="wp-block-heading has-black-color has-text-color">
-							Would you like to support this project?
-						</h5>
+						<h5>Would you like to support this project?</h5>
 
 						<ul class="wp-block-list">
 							<li>
@@ -190,7 +185,7 @@
 							</li>
 						</ul>
 
-						<h5 class="wp-block-heading has-black-color has-text-color">
+						<h5>
 							<strong>Thanks to our existing support team:</strong>
 						</h5>
 

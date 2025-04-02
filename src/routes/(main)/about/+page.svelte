@@ -47,7 +47,7 @@
 							</figure>
 						</div>
 
-						<h5 class="wp-block-heading has-black-color has-text-color">
+						<h5>
 							<strong>The Story of Ecopoint</strong>
 						</h5>
 
@@ -128,9 +128,7 @@
 					</header>
 
 					<div class="entry-content">
-						<h5 class="wp-block-heading has-black-color has-text-color">
-							Would you like to support this project?
-						</h5>
+						<h5>Would you like to support this project?</h5>
 
 						<ul class="wp-block-list">
 							<li>
@@ -163,7 +161,7 @@
 							</li>
 						</ul>
 
-						<h5 class="wp-block-heading has-black-color has-text-color">
+						<h5>
 							<strong>Thanks to our existing support team:</strong>
 						</h5>
 

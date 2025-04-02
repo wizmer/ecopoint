@@ -1,7 +1,13 @@
+<script>
+	import Ratings from '$lib/components/Ratings.svelte';
+</script>
+
 <div class="wrap grid grid-cols-1 xl:grid-cols-3 gap-8">
 	<aside>
 		<section>
 			<div>
+				<h2 class="h2">Ratings</h2>
+				<Ratings />
 				<h2 class="h2">Ecopoint Facts</h2>
 				<div
 					class="inside ecopoint-facts ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content ui-accordion-content-active"

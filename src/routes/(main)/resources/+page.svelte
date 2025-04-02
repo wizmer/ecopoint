@@ -87,7 +87,7 @@
 		<p class="mb-4">Here you find local guidbooks on how crags can be reached by fair means:</p>
 
 		{#each books as book, index}
-			<div class="book-card">
+			<div class="book-card bg-token">
 				<h3 class={index % 2 === 1 ? 'reverse-title' : ''}>{book.title}</h3>
 				<div class={`book-container ${index % 2 === 1 ? 'reverse' : ''}`}>
 					<a
@@ -145,7 +145,6 @@
 		margin: 2rem 0;
 	}
 	.book-card {
-		background: #fff;
 		padding: 1.5rem;
 		border-radius: 8px;
 		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
