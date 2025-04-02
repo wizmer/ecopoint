@@ -88,6 +88,7 @@
 		-webkit-transition: color 0.2s;
 		transition: color 0.2s;
 		text-decoration: none;
-		@apply text-xl;
+		@apply text-lg;
+		text-transform: uppercase;
 	}
 </style>
