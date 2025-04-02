@@ -21,7 +21,11 @@
 				<i class="fa-solid fa-bars text-xl" />
 			</button>
 			<!-- Logo -->
-			<a class="lg:!ml-0 w-[32px] lg:w-auto overflow-hidden" href="/" title="Go to Homepage">
+			<a
+				class="lg:!ml-0 w-[32px] lg:w-auto overflow-hidden"
+				href={routes.home}
+				title="Go to Homepage"
+			>
 				<img width="64px" height="64px" src={ecopointLogo} alt="Ecopoint logo" />
 			</a>
 		</div>
