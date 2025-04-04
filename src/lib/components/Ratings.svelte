@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex flex-row items-center gap-4">
-	<span class="text-2xl">4.91</span>
+	<span class="text-2xl">{value.current}</span>
 	<Ratings
 		justify="start"
 		bind:value={value.current}

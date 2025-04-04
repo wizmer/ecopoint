@@ -109,38 +109,32 @@
 					<Tiptap {isEditable} bind:content={ecopoint.summary} />
 					<section>
 						<h2 class="h2">How to get there</h2>
-						<p>{@html ecopoint.sections.howToGetThere}</p>
+						<Tiptap {isEditable} bind:content={ecopoint.sections.howToGetThere} />
 					</section>
 
 					<section>
 						<h2 class="h2">Where to stay</h2>
-						<p>{@html ecopoint.sections.whereToStay}</p>
+						<Tiptap {isEditable} bind:content={ecopoint.sections.whereToStay} />
 					</section>
 
 					<section>
 						<h2 class="h2">How to reach the crag(s)</h2>
-						<p>{@html ecopoint.sections.howToReachCrags}</p>
+						<Tiptap {isEditable} bind:content={ecopoint.sections.howToReachCrags} />
 					</section>
 
 					<section>
 						<h2 class="h2">Tips</h2>
-						<p>{@html ecopoint.sections.tips}</p>
+						<Tiptap {isEditable} bind:content={ecopoint.sections.tips} />
 					</section>
 
 					<section>
 						<h2 class="h2">How to book the trip</h2>
-						<p>
-							{@html ecopoint.sections.howToBook}
-						</p>
+						<Tiptap {isEditable} bind:content={ecopoint.sections.howToBook} />
 					</section>
 
 					<section>
 						<h2 class="h2">About the author</h2>
-						<p>
-							<a href={ecopoint.sections.author.link} target="_blank" rel="noopener">
-								{@html ecopoint.sections.author}
-							</a>
-						</p>
+						{@html ecopoint.sections.author}
 					</section>
 
 					<section>
