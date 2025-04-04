@@ -290,31 +290,31 @@ If you know of other accomodations or accomodation types, please add this inform
 					</label>
 					<label class="label mt-2" for="tripSummary">
 						<div>Summary</div>
-						<Tiptap id="tripSummary" content={formPlaceholders.sections.tripSummary} />
+						<Tiptap id="tripSummary" placeholder={formPlaceholders.sections.tripSummary} />
 					</label>
 					<label class="label mt-2" for="howToGetThere">
 						<div>How to get there</div>
 						<Tiptap
 							id="howToGetThere"
 							rows={10}
-							content={formPlaceholders.sections.howToGetThere}
+							placeholder={formPlaceholders.sections.howToGetThere}
 						/>
 					</label>
 					<label class="label mt-2" for="whereToStay">
 						<div>Where to stay</div>
-						<Tiptap id="whereToStay" content={formPlaceholders.sections.whereToStay} />
+						<Tiptap id="whereToStay" placeholder={formPlaceholders.sections.whereToStay} />
 					</label>
 					<label class="label mt-2" for="howToReachCrags">
 						<div>How to reach the crag(s)</div>
-						<Tiptap id="howToReachCrags" content={formPlaceholders.sections.howToReachCrags} />
+						<Tiptap id="howToReachCrags" placeholder={formPlaceholders.sections.howToReachCrags} />
 					</label>
 					<label class="label mt-2" for="tips">
 						<div>Tips</div>
-						<Tiptap id="tips" content={formPlaceholders.sections.tips} />
+						<Tiptap id="tips" placeholder={formPlaceholders.sections.tips} />
 					</label>
 					<label class="label mt-2" for="howToBookTrip">
 						<div>How to book the trip</div>
-						<Tiptap id="howToBookTrip" content={formPlaceholders.sections.howToBookTrip} />
+						<Tiptap id="howToBookTrip" placeholder={formPlaceholders.sections.howToBookTrip} />
 					</label>
 				</fieldset>
 			</div>
@@ -337,7 +337,7 @@ If you know of other accomodations or accomodation types, please add this inform
 
 					<label class="label mt-2" for="komoot">
 						<div>Komoot</div>
-						<Tiptap id="komoot" content={formPlaceholders.links.komoot} />
+						<Tiptap id="komoot" placeholder={formPlaceholders.links.komoot} />
 					</label>
 					<label class="label mt-2" for="gpxUpload">
 						<div>Guidebook</div>
@@ -360,7 +360,7 @@ If you know of other accomodations or accomodation types, please add this inform
 					<legend class="font-semibold">Author Bio</legend>
 					<label class="label mt-2" for="aboutAuthor">
 						<div>About the author (optional)</div>
-						<Tiptap id="aboutAuthor" content={formPlaceholders.author} />
+						<Tiptap id="aboutAuthor" placeholder={formPlaceholders.author} />
 					</label>
 				</fieldset>
 			</div>
