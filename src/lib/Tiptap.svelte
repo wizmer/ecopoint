@@ -1,6 +1,7 @@
 <script>
 	import { marked } from 'marked';
 	export let content = '';
+	export let rows = 3;
 
 	let markdown = '';
 	let fullScreen = false;
@@ -168,7 +169,7 @@
 	</style>
 {/if}
 
-<textarea bind:value={markdown} placeholder={content} class:fullscreen={fullScreen} />
+<textarea bind:value={markdown} {rows} placeholder={content} class:fullscreen={fullScreen} />
 {#if !preview}
 	<div class="preview">{@html marked(markdown)}</div>
 {/if}
