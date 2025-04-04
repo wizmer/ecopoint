@@ -141,74 +141,6 @@ If you know of other accomodations or accomodation types, please add this inform
 		<form class="flex flex-col items-start gap-4">
 			<div class="card">
 				<fieldset>
-					<legend class="font-semibold">Trip Details</legend>
-					<label class="label mt-2">
-						<div>Title</div>
-						<div class="flex flex-wrap items-center gap-2">
-							<select
-								id="climbingCategory"
-								class="input"
-								aria-label={formPlaceholders.title.category.label}
-							>
-								<option disabled selected>{formPlaceholders.title.category.label}</option>
-								{#each formPlaceholders.title.category.options as option}
-									<option value={option.value}>{option.label}</option>
-								{/each}
-							</select>
-							<span class="text-nowrap">trip to</span>
-							<input
-								id="climbingArea"
-								class="input"
-								type="text"
-								placeholder={formPlaceholders.title.area}
-								aria-label="Climbing area"
-							/>
-							<span>by</span>
-							<select
-								id="transportMethod"
-								class="input"
-								aria-label={formPlaceholders.title.transport.label}
-							>
-								<option disabled selected>{formPlaceholders.title.transport.label}</option>
-								{#each formPlaceholders.title.transport.options as option}
-									<option value={option.value}>{option.label}</option>
-								{/each}
-							</select>
-						</div>
-					</label>
-					<label class="label mt-2" for="tripSummary">
-						<div>Summary</div>
-						<Tiptap id="tripSummary" content={formPlaceholders.sections.tripSummary} />
-					</label>
-					<label class="label mt-2" for="howToGetThere">
-						<div>How to get there</div>
-						<Tiptap
-							id="howToGetThere"
-							rows={10}
-							content={formPlaceholders.sections.howToGetThere}
-						/>
-					</label>
-					<label class="label mt-2" for="whereToStay">
-						<div>Where to stay</div>
-						<Tiptap id="whereToStay" content={formPlaceholders.sections.whereToStay} />
-					</label>
-					<label class="label mt-2" for="howToReachCrags">
-						<div>How to reach the crag(s)</div>
-						<Tiptap id="howToReachCrags" content={formPlaceholders.sections.howToReachCrags} />
-					</label>
-					<label class="label mt-2" for="tips">
-						<div>Tips</div>
-						<Tiptap id="tips" content={formPlaceholders.sections.tips} />
-					</label>
-					<label class="label mt-2" for="howToBookTrip">
-						<div>How to book the trip</div>
-						<Tiptap id="howToBookTrip" content={formPlaceholders.sections.howToBookTrip} />
-					</label>
-				</fieldset>
-			</div>
-
-			<div class="card">
-				<fieldset>
 					<legend class="font-semibold">Ecopoint Facts</legend>
 
 					<label class="label mt-2">
@@ -315,6 +247,74 @@ If you know of other accomodations or accomodation types, please add this inform
 								{/each}
 							</select>
 						</div>
+					</label>
+				</fieldset>
+			</div>
+
+			<div class="card">
+				<fieldset>
+					<legend class="font-semibold">Trip Details</legend>
+					<label class="label mt-2">
+						<div>Title</div>
+						<div class="flex flex-wrap items-center gap-2">
+							<select
+								id="climbingCategory"
+								class="input"
+								aria-label={formPlaceholders.title.category.label}
+							>
+								<option disabled selected>{formPlaceholders.title.category.label}</option>
+								{#each formPlaceholders.title.category.options as option}
+									<option value={option.value}>{option.label}</option>
+								{/each}
+							</select>
+							<span class="text-nowrap">trip to</span>
+							<input
+								id="climbingArea"
+								class="input"
+								type="text"
+								placeholder={formPlaceholders.title.area}
+								aria-label="Climbing area"
+							/>
+							<span>by</span>
+							<select
+								id="transportMethod"
+								class="input"
+								aria-label={formPlaceholders.title.transport.label}
+							>
+								<option disabled selected>{formPlaceholders.title.transport.label}</option>
+								{#each formPlaceholders.title.transport.options as option}
+									<option value={option.value}>{option.label}</option>
+								{/each}
+							</select>
+						</div>
+					</label>
+					<label class="label mt-2" for="tripSummary">
+						<div>Summary</div>
+						<Tiptap id="tripSummary" content={formPlaceholders.sections.tripSummary} />
+					</label>
+					<label class="label mt-2" for="howToGetThere">
+						<div>How to get there</div>
+						<Tiptap
+							id="howToGetThere"
+							rows={10}
+							content={formPlaceholders.sections.howToGetThere}
+						/>
+					</label>
+					<label class="label mt-2" for="whereToStay">
+						<div>Where to stay</div>
+						<Tiptap id="whereToStay" content={formPlaceholders.sections.whereToStay} />
+					</label>
+					<label class="label mt-2" for="howToReachCrags">
+						<div>How to reach the crag(s)</div>
+						<Tiptap id="howToReachCrags" content={formPlaceholders.sections.howToReachCrags} />
+					</label>
+					<label class="label mt-2" for="tips">
+						<div>Tips</div>
+						<Tiptap id="tips" content={formPlaceholders.sections.tips} />
+					</label>
+					<label class="label mt-2" for="howToBookTrip">
+						<div>How to book the trip</div>
+						<Tiptap id="howToBookTrip" content={formPlaceholders.sections.howToBookTrip} />
 					</label>
 				</fieldset>
 			</div>
