@@ -1,6 +1,26 @@
 <script lang="ts">
 	import Tiptap from '$lib/Tiptap.svelte';
 
+	const grades = [
+		'3a',
+		'3b',
+		'3c',
+		'4a',
+		'4b',
+		'4c',
+		'5a',
+		'5b',
+		'5c',
+		'6a',
+		'6b',
+		'6c',
+		'7a',
+		'7b',
+		'7c',
+		'8a',
+		'8b',
+		'8c'
+	];
 	const formPlaceholders = {
 		title: {
 			category: {
@@ -47,7 +67,70 @@ If you know of other accomodations or accomodation types, please add this inform
 			guidebook: 'Guidebook URL or nearest place to buy it',
 			misc: 'Add any miscellaneous links here...'
 		},
-		author: 'Your name and/or a link to your public URL (social network, personal website, etc.)'
+		author: 'Your name and/or a link to your public URL (social network, personal website, etc.)',
+		ecopointFacts: {
+			climbingTypes: {
+				label: 'Climbing Type(s)',
+				options: [
+					{ value: 'trad', label: 'Trad' },
+					{ value: 'sport', label: 'Sport' },
+					{ value: 'bouldering', label: 'Bouldering' },
+					{ value: 'multipitch', label: 'Multi-pitch' },
+					{ value: 'bigwall', label: 'Big Wall' },
+					{ value: 'ice', label: 'Ice Climbing' },
+					{ value: 'mixed', label: 'Mixed Climbing' },
+					{ value: 'dws', label: 'Deep Water Soloing' }
+				]
+			},
+			approachTypes: {
+				label: 'Approach Type(s)',
+				options: [
+					{ value: 'train', label: 'Train' },
+					{ value: 'bus', label: 'Bus' },
+					{ value: 'bike', label: 'Bike' },
+					{ value: 'walk', label: 'Walk (30+ min)' }
+				]
+			},
+			accommodationTypes: {
+				label: 'Accommodation Type(s)',
+				options: [
+					{ value: 'camping', label: 'Camping' },
+					{ value: 'apartment', label: 'Apartment' },
+					{ value: 'hostel', label: 'Hostel' },
+					{ value: 'hotel', label: 'Hotel' },
+					{ value: 'lodge', label: 'Mountain Lodge' }
+				]
+			},
+			rockTypes: {
+				label: 'Rock Type(s)',
+				options: [
+					{ value: 'limestone', label: 'Limestone' },
+					{ value: 'granite', label: 'Granite' },
+					{ value: 'gneiss', label: 'Gneiss' },
+					{ value: 'sandstone', label: 'Sandstone' },
+					{ value: 'basalt', label: 'Basalt' },
+					{ value: 'conglomerat', label: 'Conglomerat' },
+					{ value: 'dolomit', label: 'Dolomit' }
+				]
+			},
+			months: {
+				label: 'Best Months to Climb',
+				options: [
+					{ value: 'jan', label: 'Jan' },
+					{ value: 'feb', label: 'Feb' },
+					{ value: 'mar', label: 'Mar' },
+					{ value: 'apr', label: 'Apr' },
+					{ value: 'may', label: 'May' },
+					{ value: 'jun', label: 'Jun' },
+					{ value: 'jul', label: 'Jul' },
+					{ value: 'aug', label: 'Aug' },
+					{ value: 'sep', label: 'Sep' },
+					{ value: 'oct', label: 'Oct' },
+					{ value: 'nov', label: 'Nov' },
+					{ value: 'dec', label: 'Dec' }
+				]
+			}
+		}
 	};
 </script>
 
@@ -56,130 +139,231 @@ If you know of other accomodations or accomodation types, please add this inform
 		<h1 class="h1 mb-10">Contribute</h1>
 
 		<form class="flex flex-col items-start gap-4">
-			<!-- <fieldset>
-				<legend class="font-semibold">Contributor Info</legend>
-				<label class="label mt-2" for="email">
-					<span>Email</span>
-					<input id="email" class="input" type="email" aria-required="true" />
-				</label>
-				<div class="flex flex-row flex-wrap gap-2 mt-2">
-					<label class="label grow" for="firstName">
-						<span>First Name</span>
-						<input id="firstName" class="input" type="text" />
+			<div class="card">
+				<fieldset>
+					<legend class="font-semibold">Trip Details</legend>
+					<label class="label mt-2">
+						<div>Title</div>
+						<div class="flex flex-wrap items-center gap-2">
+							<select
+								id="climbingCategory"
+								class="input"
+								aria-label={formPlaceholders.title.category.label}
+							>
+								<option disabled selected>{formPlaceholders.title.category.label}</option>
+								{#each formPlaceholders.title.category.options as option}
+									<option value={option.value}>{option.label}</option>
+								{/each}
+							</select>
+							<span class="text-nowrap">trip to</span>
+							<input
+								id="climbingArea"
+								class="input"
+								type="text"
+								placeholder={formPlaceholders.title.area}
+								aria-label="Climbing area"
+							/>
+							<span>by</span>
+							<select
+								id="transportMethod"
+								class="input"
+								aria-label={formPlaceholders.title.transport.label}
+							>
+								<option disabled selected>{formPlaceholders.title.transport.label}</option>
+								{#each formPlaceholders.title.transport.options as option}
+									<option value={option.value}>{option.label}</option>
+								{/each}
+							</select>
+						</div>
 					</label>
-					<label class="label grow" for="lastName">
-						<span>Last Name</span>
-						<input id="lastName" class="input" type="text" />
+					<label class="label mt-2" for="tripSummary">
+						<div>Summary</div>
+						<Tiptap id="tripSummary" content={formPlaceholders.sections.tripSummary} />
 					</label>
-				</div>
-			</fieldset> -->
+					<label class="label mt-2" for="howToGetThere">
+						<div>How to get there</div>
+						<Tiptap
+							id="howToGetThere"
+							rows={10}
+							content={formPlaceholders.sections.howToGetThere}
+						/>
+					</label>
+					<label class="label mt-2" for="whereToStay">
+						<div>Where to stay</div>
+						<Tiptap id="whereToStay" content={formPlaceholders.sections.whereToStay} />
+					</label>
+					<label class="label mt-2" for="howToReachCrags">
+						<div>How to reach the crag(s)</div>
+						<Tiptap id="howToReachCrags" content={formPlaceholders.sections.howToReachCrags} />
+					</label>
+					<label class="label mt-2" for="tips">
+						<div>Tips</div>
+						<Tiptap id="tips" content={formPlaceholders.sections.tips} />
+					</label>
+					<label class="label mt-2" for="howToBookTrip">
+						<div>How to book the trip</div>
+						<Tiptap id="howToBookTrip" content={formPlaceholders.sections.howToBookTrip} />
+					</label>
+				</fieldset>
+			</div>
 
-			<!-- ************** TRIP DETAILS *************** -->
-			<fieldset>
-				<legend class="font-semibold">Trip Details</legend>
-				<label class="label mt-2">
-					<div>Title</div>
-					<div class="flex flex-wrap items-center gap-2">
-						<select
-							id="climbingCategory"
-							class="input"
-							aria-label={formPlaceholders.title.category.label}
-						>
-							<option disabled selected>{formPlaceholders.title.category.label}</option>
-							{#each formPlaceholders.title.category.options as option}
-								<option value={option.value}>{option.label}</option>
-							{/each}
-						</select>
-						<span class="text-nowrap">trip to</span>
+			<div class="card">
+				<fieldset>
+					<legend class="font-semibold">Ecopoint Facts</legend>
+
+					<label class="label mt-2">
+						<div>Nearest Major Railway Station</div>
 						<input
-							id="climbingArea"
+							type="text"
+							class="input"
+							placeholder="Please name the last biggest railway station close to the crag"
+						/>
+					</label>
+
+					<label class="label mt-2">
+						<div>{formPlaceholders.ecopointFacts.climbingTypes.label}</div>
+						<div class="flex flex-wrap gap-2">
+							{#each formPlaceholders.ecopointFacts.climbingTypes.options as option}
+								<label class="chip variant-soft">
+									<input type="checkbox" value={option.value} class="checkbox" />
+									<span>{option.label}</span>
+								</label>
+							{/each}
+						</div>
+					</label>
+
+					<label class="label mt-2">
+						<div>{formPlaceholders.ecopointFacts.approachTypes.label}</div>
+						<div class="flex flex-wrap gap-2">
+							{#each formPlaceholders.ecopointFacts.approachTypes.options as option}
+								<label class="chip variant-soft">
+									<input type="checkbox" value={option.value} class="checkbox" />
+									<span>{option.label}</span>
+								</label>
+							{/each}
+						</div>
+					</label>
+
+					<label class="label mt-2">
+						<div>Travel Duration</div>
+						<input
+							type="text"
+							class="input"
+							placeholder="Time duration from starting to end point"
+						/>
+					</label>
+
+					<label class="label mt-2">
+						<div>{formPlaceholders.ecopointFacts.accommodationTypes.label}</div>
+						<div class="flex flex-wrap gap-2">
+							{#each formPlaceholders.ecopointFacts.accommodationTypes.options as option}
+								<label class="chip variant-soft">
+									<input type="checkbox" value={option.value} class="checkbox" />
+									<span>{option.label}</span>
+								</label>
+							{/each}
+						</div>
+					</label>
+
+					<label class="label mt-2">
+						<div>{formPlaceholders.ecopointFacts.rockTypes.label}</div>
+						<div class="flex flex-wrap gap-2">
+							{#each formPlaceholders.ecopointFacts.rockTypes.options as option}
+								<label class="chip variant-soft">
+									<input type="checkbox" value={option.value} class="checkbox" />
+									<span>{option.label}</span>
+								</label>
+							{/each}
+						</div>
+					</label>
+
+					<label class="label mt-2">
+						<div>{formPlaceholders.ecopointFacts.months.label}</div>
+						<div class="flex flex-wrap gap-2">
+							{#each formPlaceholders.ecopointFacts.months.options as option}
+								<label class="chip variant-soft">
+									<input type="checkbox" value={option.value} class="checkbox" />
+									<span>{option.label}</span>
+								</label>
+							{/each}
+						</div>
+					</label>
+
+					<label class="label mt-2">
+						<div>TheCrag.com Link</div>
+						<input
+							type="url"
+							class="input"
+							placeholder="Website link to the area on www.thecrag.com"
+						/>
+					</label>
+
+					<label class="label mt-2">
+						<div>Difficulty Range</div>
+						<div class="flex items-center gap-2">
+							<select id="difficultyMin" class="input" aria-label="Minimum difficulty grade">
+								<option disabled selected>Min grade</option>
+								{#each grades as option}
+									<option value={option}>{option}</option>
+								{/each}
+							</select>
+							<span>to</span>
+							<select id="difficultyMax" class="input" aria-label="Maximum difficulty grade">
+								<option disabled selected>Max grade</option>
+								{#each grades as option}
+									<option value={option}>{option}</option>
+								{/each}
+							</select>
+						</div>
+					</label>
+				</fieldset>
+			</div>
+
+			<div class="card">
+				<fieldset>
+					<legend class="font-semibold">Links</legend>
+					<label class="label mt-2" for="publicTransportLinks">
+						<div>Public Transport Links</div>
+						<textarea
+							id="publicTransportLinks"
+							class="input"
+							placeholder={formPlaceholders.links.publicTransport}
+						/>
+					</label>
+					<label class="label mt-2" for="gpxUpload">
+						<div>GPX Upload</div>
+						<input id="gpxUpload" class="input" type="file" accept=".gpx" multiple />
+					</label>
+
+					<label class="label mt-2" for="komoot">
+						<div>Komoot</div>
+						<Tiptap id="komoot" content={formPlaceholders.links.komoot} />
+					</label>
+					<label class="label mt-2" for="gpxUpload">
+						<div>Guidebook</div>
+						<input
+							id="guidebook"
 							class="input"
 							type="text"
-							placeholder={formPlaceholders.title.area}
-							aria-label="Climbing area"
+							placeholder={formPlaceholders.links.guidebook}
 						/>
-						<span>by</span>
-						<select
-							id="transportMethod"
-							class="input"
-							aria-label={formPlaceholders.title.transport.label}
-						>
-							<option disabled selected>{formPlaceholders.title.transport.label}</option>
-							{#each formPlaceholders.title.transport.options as option}
-								<option value={option.value}>{option.label}</option>
-							{/each}
-						</select>
-					</div>
-				</label>
-				<label class="label mt-2" for="tripSummary">
-					<div>Summary</div>
-					<Tiptap id="tripSummary" content={formPlaceholders.sections.tripSummary} />
-				</label>
-				<label class="label mt-2" for="howToGetThere">
-					<div>How to get there</div>
-					<Tiptap id="howToGetThere" rows={10} content={formPlaceholders.sections.howToGetThere} />
-				</label>
-				<label class="label mt-2" for="whereToStay">
-					<div>Where to stay</div>
-					<Tiptap id="whereToStay" content={formPlaceholders.sections.whereToStay} />
-				</label>
-				<label class="label mt-2" for="howToReachCrags">
-					<div>How to reach the crag(s)</div>
-					<Tiptap id="howToReachCrags" content={formPlaceholders.sections.howToReachCrags} />
-				</label>
-				<label class="label mt-2" for="tips">
-					<div>Tips</div>
-					<Tiptap id="tips" content={formPlaceholders.sections.tips} />
-				</label>
-				<label class="label mt-2" for="howToBookTrip">
-					<div>How to book the trip</div>
-					<Tiptap id="howToBookTrip" content={formPlaceholders.sections.howToBookTrip} />
-				</label>
-			</fieldset>
+					</label>
+					<label class="label mt-2" for="miscLinks">
+						<div>Misc. Links</div>
+						<textarea id="miscLinks" class="input" placeholder={formPlaceholders.links.misc} />
+					</label>
+				</fieldset>
+			</div>
 
-			<!-- ************** LINKS *************** -->
-			<fieldset>
-				<legend class="font-semibold">Links</legend>
-				<label class="label mt-2" for="publicTransportLinks">
-					<div>Public Transport Links</div>
-					<textarea
-						id="publicTransportLinks"
-						class="input"
-						placeholder={formPlaceholders.links.publicTransport}
-					/>
-				</label>
-				<label class="label mt-2" for="gpxUpload">
-					<div>GPX Upload</div>
-					<input id="gpxUpload" class="input" type="file" accept=".gpx" multiple />
-				</label>
-
-				<label class="label mt-2" for="komoot">
-					<div>Komoot</div>
-					<Tiptap id="komoot" content={formPlaceholders.links.komoot} />
-				</label>
-				<label class="label mt-2" for="gpxUpload">
-					<div>Guidebook</div>
-					<input
-						id="guidebook"
-						class="input"
-						type="text"
-						placeholder={formPlaceholders.links.guidebook}
-					/>
-				</label>
-				<label class="label mt-2" for="miscLinks">
-					<div>Misc. Links</div>
-					<textarea id="miscLinks" class="input" placeholder={formPlaceholders.links.misc} />
-				</label>
-			</fieldset>
-
-			<!-- ************** AUTHOR *************** -->
-			<fieldset>
-				<legend class="font-semibold">Author Bio</legend>
-				<label class="label mt-2" for="aboutAuthor">
-					<div>About the author (optional)</div>
-					<Tiptap id="aboutAuthor" content={formPlaceholders.author} />
-				</label>
-			</fieldset>
+			<div class="card">
+				<fieldset>
+					<legend class="font-semibold">Author Bio</legend>
+					<label class="label mt-2" for="aboutAuthor">
+						<div>About the author (optional)</div>
+						<Tiptap id="aboutAuthor" content={formPlaceholders.author} />
+					</label>
+				</fieldset>
+			</div>
 
 			<button type="submit" class="btn btn-xl variant-filled-primary self-center mb-10"
 				>Submit</button
@@ -189,16 +373,24 @@ If you know of other accomodations or accomodation types, please add this inform
 </div>
 
 <style lang="postcss">
+	.card {
+		@apply p-4 w-full bg-secondary-100-800-token;
+	}
+
+	.card:nth-child(even) {
+		@apply bg-warning-100-800-token;
+	}
+
 	fieldset {
-		@apply border p-4 w-full mb-6; /* Added bottom margin */
+		@apply p-4 mt-4;
 	}
 
 	/* Improve label text appearance only to the first div */
 	.label > div:first-of-type {
-		@apply font-bold text-lg text-gray-800;
+		@apply font-bold text-lg;
 	}
 
 	legend {
-		@apply font-semibold text-xl mb-2 text-secondary-500;
+		@apply font-semibold text-xl mb-2;
 	}
 </style>
