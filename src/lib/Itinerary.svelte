@@ -2,6 +2,7 @@
 	import { Mode, type Itinerary } from '$lib/types/itinerary';
 
 	export let itinerary: Itinerary;
+	export let displayTotalDuration = true;
 
 	const modeToIcon: Record<Mode, string> = {
 		[Mode.Train]: 'fa-train',
@@ -20,23 +21,28 @@
 </script>
 
 <div class="journey-schematic">
-	<div class="total-duration">
-		Trip duration: {formatDuration(itinerary.totalDuration)}
-	</div>
-	<div class="journey-steps">
-		{#each itinerary.legs as leg, i}
-			<div class="journey-segment">
-				<div class="location">{leg.from.name}</div>
-				<div class="transport">
-					<i class="fa-solid {modeToIcon[leg.mode]}" />
-					<div class="duration">{formatDuration(leg.duration)}</div>
-					<div class="transport-line" />
-				</div>
-				{#if i === itinerary.legs.length - 1}
-					<div class="location">{leg.to.name}</div>
-				{/if}
+	<div class="journey-container">
+		{#if displayTotalDuration}
+			<div class="total-duration">
+				Trip duration: {formatDuration(itinerary.totalDuration)}
 			</div>
-		{/each}
+		{/if}
+		<div class="journey-steps">
+			{#each itinerary.legs as leg, i}
+				<div class="journey-segment">
+					<div class="location">{leg.from.name}</div>
+					<div class="transport">
+						<div class="transport-line" />
+						<i class="fa-solid {modeToIcon[leg.mode]}" />
+						<div class="duration">{formatDuration(leg.duration)}</div>
+						<div class="transport-line" />
+					</div>
+					{#if i === itinerary.legs.length - 1}
+						<div class="location">{leg.to.name}</div>
+					{/if}
+				</div>
+			{/each}
+		</div>
 	</div>
 </div>
 
@@ -44,6 +50,15 @@
 	.journey-schematic {
 		padding: 2rem;
 		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.journey-container {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
 	}
 
 	.journey-steps {
@@ -107,6 +122,8 @@
 			flex-wrap: wrap;
 			justify-content: center;
 			gap: 1rem 2rem;
+			flex: 0 1 auto; /* Changed from flex: 1 to flex: 0 1 auto */
+			min-width: 0;
 		}
 
 		.journey-segment {
@@ -123,7 +140,7 @@
 		}
 
 		.transport-line {
-			width: 4rem;
+			width: 2rem;
 			height: 2px;
 		}
 
@@ -133,7 +150,18 @@
 		}
 
 		.total-duration {
-			margin-bottom: 2rem;
+			margin-bottom: 0;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		.journey-container {
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 1rem;
+			padding-inline: 1rem;
+			max-width: 80%; /* Prevent container from becoming too wide */
 		}
 	}
 </style>

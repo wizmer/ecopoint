@@ -5,7 +5,7 @@ export const ecopoints: Ecopoint[] = [
 		{
 			title: 'Climbing trip to Valle Maggia (Switzerland) by public transport',
             slug: 'climbing-trip-to-valle-maggia-switzerland-by-public-transport',
-			summary: '',
+			summary: 'Ticino is wonderful. In autumn, winter and spring its cold and warm enough for bouldering, climbing, hiking, biking (even in summer one can climb in the shadow, if somewhat heat-resistant). It’s beautiful, and greatly developed in terms of public transport. There are lots of buses to the different valleys. Sometimes, while in front of the Gotthard tunnel cars are being stuck in traffic jams for hours, I race past it by train in peace and quiet (yes, all quiet – in Swiss trains you can mostly almost hear a needle drop…). Whenever I get out of the Gotthard, I’m blinded by the dazzling light, and then I see the lovely landscape, the green, wooded hills, the high mountains in the background – and I’m glad to be back here, and eager to go climbing. The famous Valle Maggia, close to Locarno, meanders deep into the mountains. For ecopoint climbing, it is perfect. There is a vast variety of different climbing styles and types – from slabs to steep overhangs and from trad to sport and multi-pitch climbing you can find almost everything – and almost everything is reachable by train and bus.',
 			sections: {
 				howToGetThere:
 					'From <strong>Zurich</strong> you travel by train to <strong>Bellinzona</strong> (depending on the connection via Arth-Goldau), then to <strong>Locarno</strong>, where you switch to the bus which takes you directly to <strong>Avegno</strong> in the Valle Maggia (travel time in total: 2:30 h).',
@@ -86,7 +86,7 @@ If you plan to travel more often to/in Switzerland, you might want to buy a “<
 				topoLink: 'https://www.thecrag.com/en/climbing/switzerland/alpen/tessin/valle-maggia'
 			},
 			itinerary : {
-				totalDuration: 110,
+				totalDuration: 150,
 					legs: [
 						{
 							mode: Mode.Train,
@@ -131,7 +131,80 @@ If you plan to travel more often to/in Switzerland, you might want to buy a “<
 							}
 						}
 					]
+				},
+			approaches: [
+				{
+					totalDuration: 30,
+					legs: [
+						{
+							mode: Mode.Walk,
+							duration: 20,
+							from: {
+								name: "Avegno",
+								lat: 46.2082,
+								lon: 8.7477
+							},
+							to: {
+								name: "Torbeccio Crag",
+								lat: 46.2125,
+								lon: 8.7453
+							}
+						}
+					]
+				},
+				{
+					totalDuration: 30,
+					legs: [
+						{
+							mode: Mode.Walk,
+							duration: 30,
+							from: {
+								name: "Avegno",
+								lat: 46.2082,
+								lon: 8.7477
+							},
+							to: {
+								name: "Ponte Brolla Crag",
+								lat: 46.1903,
+								lon: 8.7516
+							}
+						}
+					]
+				},
+				{
+					totalDuration: 60,
+					legs: [
+						{
+							mode: Mode.Bus,
+							duration: 45,
+							from: {
+								name: "Locarno",
+								lat: 46.1695,
+								lon: 8.7927
+							},
+							to: {
+								name: "Cevio",
+								lat: 46.3191,
+								lon: 8.6016
+							}
+						},
+						{
+							mode: Mode.Walk,
+							duration: 15,
+							from: {
+								name: "Cevio",
+								lat: 46.3191,
+								lon: 8.6016
+							},
+							to: {
+								name: "Cevio Crag",
+								lat: 46.3209,
+								lon: 8.5983
+							}
+						}
+					]
 				}
+			]
 		},
 		{
 			title: 'Climbing trip to Bohuslän (Sweden) by train and bike',
@@ -235,6 +308,65 @@ Other good rest day activities are taking a swim in the fjords (in the evenings 
 						}
 					}
 				]
-			}
+			},
+			approaches: [
+				{
+					totalDuration: 2,
+					legs: [
+						{
+							mode: Mode.Walk,
+							duration: 2,
+							from: {
+								name: "Häller Climbing Camping",
+								lat: 58.4833,
+								lon: 11.5667
+							},
+							to: {
+								name: "Häller Crag",
+								lat: 58.4831,
+								lon: 11.5672
+							}
+						}
+					]
+				},
+				{
+					totalDuration: 15,
+					legs: [
+						{
+							mode: Mode.Bike,
+							duration: 15,
+							from: {
+								name: "Häller Climbing Camping",
+								lat: 58.4833,
+								lon: 11.5667
+							},
+							to: {
+								name: "Hallinden Crag",
+								lat: 58.4917,
+								lon: 11.5750
+							}
+						}
+					]
+				},
+				{
+					totalDuration: 30,
+					legs: [
+						{
+							mode: Mode.Bike,
+							duration: 30,
+							from: {
+								name: "Häller Climbing Camping",
+								lat: 58.4833,
+								lon: 11.5667
+							},
+							to: {
+								name: "Galgeberget Crag",
+								lat: 58.4722,
+								lon: 11.5528
+							}
+						}
+					]
+				}
+			]
 		}
 	];

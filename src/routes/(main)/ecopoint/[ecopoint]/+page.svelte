@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import Ratings from '$lib/components/Ratings.svelte';
 	import { ecopoints } from '$lib/ecopoints';
 	import Itinerary from '$lib/Itinerary.svelte';
+	import ItinerarySummary from '$lib/ItinerarySummary.svelte';
+	import Map from '$lib/Map.svelte';
 	import Tiptap from '$lib/Tiptap.svelte';
 	import type { Ecopoint } from '$lib/types/ecopoint';
 
@@ -16,12 +17,15 @@
 <button class="btn btn-sm variant-ringed-primary" on:click={() => (isEditable = !isEditable)}
 	>Suggest a modification</button
 >
+
+<h2 class="h2 text-center">{ecopoint.title}</h2>
+<Itinerary itinerary={ecopoint.itinerary} />
 <div class="wrap grid grid-cols-1 xl:grid-cols-3 gap-8">
 	<aside>
 		<section>
 			<div>
-				<h2 class="h2">Ratings</h2>
-				<Ratings />
+				<!-- <h2 class="h2">Ratings</h2>
+				<Ratings /> -->
 				<h2 class="h2">Ecopoint Facts</h2>
 				<div
 					class="inside ecopoint-facts ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content ui-accordion-content-active"
@@ -31,12 +35,12 @@
 					role="tabpanel"
 					aria-hidden="false"
 				>
-					<h3>Approach</h3>
-					<p>
-						<span class="ecopoint-ecopointType">Train</span><span class="ecopoint-ecopointType"
-							>Bus</span
-						>
-					</p>
+					<h3>Approaches</h3>
+					<div class="flex flex-row gap-2">
+						{#each ecopoint.approaches as approach}
+							<ItinerarySummary itinerary={approach} />
+						{/each}
+					</div>
 
 					<h3>Nearest Major Railway Station</h3>
 					<p><span class="ecopoint-ecopointType">Locarno</span></p>
@@ -100,28 +104,35 @@
 	</aside>
 
 	<main class="xl:col-span-2 xl:order-first">
-		<h2 class="h2">{ecopoint.title}</h2>
-		<Itinerary itinerary={ecopoint.itinerary} />
 		<article
 			class="post-717 ecopoint type-ecopoint status-publish has-post-thumbnail hentry ecopoint-country-switzerland"
 			id="post-717"
 		>
 			<div class="entry-inner thin">
 				<div class="entry-content">
-					<Tiptap {isEditable} bind:content={ecopoint.summary} />
 					<section>
+						<h2 class="h2">Summary</h2>
+						<Tiptap {isEditable} bind:content={ecopoint.summary} />
+					</section>
+					<!-- <section>
 						<h2 class="h2">How to get there</h2>
 						<Tiptap {isEditable} bind:content={ecopoint.sections.howToGetThere} />
+					</section> -->
+
+					<section>
+						<h2 class="h2">How to reach the crag(s)</h2>
+						<div class="w-full">
+							<Map inputClasses="h-[300px] mb-4 z-10" itineraries={ecopoint.approaches} />
+						</div>
+						{#each ecopoint.approaches as approach}
+							<Itinerary itinerary={approach} displayTotalDuration={false} />
+						{/each}
+						<Tiptap {isEditable} bind:content={ecopoint.sections.howToReachCrags} />
 					</section>
 
 					<section>
 						<h2 class="h2">Where to stay</h2>
 						<Tiptap {isEditable} bind:content={ecopoint.sections.whereToStay} />
-					</section>
-
-					<section>
-						<h2 class="h2">How to reach the crag(s)</h2>
-						<Tiptap {isEditable} bind:content={ecopoint.sections.howToReachCrags} />
 					</section>
 
 					<section>

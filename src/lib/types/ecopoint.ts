@@ -23,6 +23,7 @@ export interface Ecopoint {
   title: string;
   slug: string;
   itinerary: Itinerary;
+  approaches: Itinerary[];
   summary: string;
   sections: Sections;
   // Optional fields observed in the template but not in the data
