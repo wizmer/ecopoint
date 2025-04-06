@@ -19,7 +19,9 @@
 >
 
 <h2 class="h2 text-center">{ecopoint.title}</h2>
-<Itinerary itinerary={ecopoint.itinerary} />
+<div class="flex justify-center">
+	<Itinerary itinerary={ecopoint.itinerary} />
+</div>
 <div class="wrap grid grid-cols-1 xl:grid-cols-3 gap-8">
 	<aside>
 		<section>

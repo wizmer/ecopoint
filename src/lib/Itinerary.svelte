@@ -20,38 +20,36 @@
 	}
 </script>
 
-<div class="journey-schematic">
-	<div class="journey-container">
+<div class="journey-container">
+	<div class="journey-steps">
 		{#if displayTotalDuration}
 			<div class="total-duration">
 				Trip duration: {formatDuration(itinerary.totalDuration)}
 			</div>
 		{/if}
-		<div class="journey-steps">
-			{#each itinerary.legs as leg, i}
-				<div class="journey-segment">
-					<div class="location">{leg.from.name}</div>
-					<div class="transport">
-						<div class="transport-line" />
-						<i class="fa-solid {modeToIcon[leg.mode]}" />
-						<div class="duration">{formatDuration(leg.duration)}</div>
-						<div class="transport-line" />
-					</div>
-					{#if i === itinerary.legs.length - 1}
-						<div class="location">{leg.to.name}</div>
-					{/if}
+		{#each itinerary.legs as leg, i}
+			<div class="journey-segment">
+				<div class="location">{leg.from.name}</div>
+				<div class="transport">
+					<div class="transport-line" />
+					<i class="fa-solid {modeToIcon[leg.mode]}" />
+					<div class="duration">{formatDuration(leg.duration)}</div>
+					<div class="transport-line" />
 				</div>
-			{/each}
-		</div>
+				{#if i === itinerary.legs.length - 1}
+					<div class="location">{leg.to.name}</div>
+				{/if}
+			</div>
+		{/each}
 	</div>
 </div>
 
 <style>
 	.journey-schematic {
-		padding: 2rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 		width: 100%;
 		display: flex;
-		justify-content: center;
 	}
 
 	.journey-container {
@@ -120,7 +118,7 @@
 		.journey-steps {
 			flex-direction: row;
 			flex-wrap: wrap;
-			justify-content: center;
+			justify-content: flex-start;
 			gap: 1rem 2rem;
 			flex: 0 1 auto; /* Changed from flex: 1 to flex: 0 1 auto */
 			min-width: 0;
