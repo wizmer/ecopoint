@@ -127,7 +127,9 @@
 							<Map inputClasses="h-[300px] mb-4 z-10" itineraries={ecopoint.approaches} />
 						</div>
 						{#each ecopoint.approaches as approach}
-							<Itinerary itinerary={approach} displayTotalDuration={false} />
+							<div class="mb-4">
+								<Itinerary itinerary={approach} displayTotalDuration={false} />
+							</div>
 						{/each}
 						<Tiptap {isEditable} bind:content={ecopoint.sections.howToReachCrags} />
 					</section>
