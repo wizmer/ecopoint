@@ -74,7 +74,7 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5rem;
-		width: 100%;
+		flex: 0 0 auto; /* Replace width: 100% */
 	}
 
 	.location {
@@ -130,8 +130,7 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			width: auto;
-			flex: 0 1 auto;
+			flex: 0 0 auto;
 		}
 
 		.transport {
