@@ -29,15 +29,24 @@
 		{/if}
 		{#each itinerary.legs as leg, i}
 			<div class="journey-segment">
-				<div class="location">{leg.from.name}</div>
-				<div class="transport">
-					<div class="transport-line" />
+				<div class="location-group">
+					{#if i > 0}
+						<div class="transport-line-half" />
+					{/if}
+					<div class="location">{leg.from.name}</div>
+					<div class="transport-line-half" />
+				</div>
+				<div class="location-group">
+					<div class="transport-line-half" />
 					<i class="fa-solid {modeToIcon[leg.mode]}" />
 					<div class="duration">{formatDuration(leg.duration)}</div>
-					<div class="transport-line" />
+					<div class="transport-line-half" />
 				</div>
 				{#if i === itinerary.legs.length - 1}
-					<div class="location">{leg.to.name}</div>
+					<div class="location-group">
+						<div class="transport-line-half" />
+						<div class="location">{leg.to.name}</div>
+					</div>
 				{/if}
 			</div>
 		{/each}
@@ -114,12 +123,26 @@
 		margin-inline: auto;
 	}
 
+	.transport-line-half {
+		width: 1px;
+		height: 1rem;
+		background-color: #9ca3af;
+	}
+
+	.location-group {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		break-inside: avoid;
+	}
+
 	@media (min-width: 768px) {
 		.journey-steps {
 			flex-direction: row;
 			flex-wrap: wrap;
 			justify-content: flex-start;
-			gap: 1rem 2rem;
+			gap: 0.5rem 0rem;
 			flex: 0 1 auto; /* Changed from flex: 1 to flex: 0 1 auto */
 			min-width: 0;
 		}
@@ -133,7 +156,7 @@
 
 		.transport {
 			flex-direction: row;
-			gap: 0.5rem;
+			gap: 0rem;
 		}
 
 		.transport-line {
@@ -156,9 +179,31 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: flex-start;
-			gap: 1rem;
+			gap: 0rem;
 			padding-inline: 1rem;
 			max-width: 80%; /* Prevent container from becoming too wide */
+		}
+
+		.transport-line-half {
+			width: 1rem;
+			height: 2px;
+		}
+
+		.location-group {
+			flex-direction: row;
+			white-space: nowrap;
+			flex: 0 0 auto;
+		}
+
+		/* Style for line breaks */
+		.journey-segment:last-of-type:not(:last-child) .transport-line-half:last-child {
+			background-color: #9ca3af;
+		}
+
+		.journey-segment:first-of-type:not(:first-child)
+			.location-group:first-child
+			.transport-line-half:first-child {
+			background-color: transparent;
 		}
 	}
 </style>
