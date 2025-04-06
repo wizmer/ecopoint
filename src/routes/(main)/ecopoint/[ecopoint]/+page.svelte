@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import Ratings from '$lib/components/Ratings.svelte';
 	import { ecopoints } from '$lib/ecopoints';
+	import Itinerary from '$lib/Itinerary.svelte';
 	import Tiptap from '$lib/Tiptap.svelte';
 	import type { Ecopoint } from '$lib/types/ecopoint';
 
@@ -100,6 +101,7 @@
 
 	<main class="xl:col-span-2 xl:order-first">
 		<h2 class="h2">{ecopoint.title}</h2>
+		<Itinerary itinerary={ecopoint.itinerary} />
 		<article
 			class="post-717 ecopoint type-ecopoint status-publish has-post-thumbnail hentry ecopoint-country-switzerland"
 			id="post-717"

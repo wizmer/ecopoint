@@ -1,3 +1,5 @@
+import type { Itinerary } from "./itinerary";
+
 export interface Image {
   title: string;
   src: string;
@@ -20,6 +22,7 @@ export interface Sections {
 export interface Ecopoint {
   title: string;
   slug: string;
+  itinerary: Itinerary;
   summary: string;
   sections: Sections;
   // Optional fields observed in the template but not in the data

@@ -1,4 +1,5 @@
 import type { Ecopoint } from "./types/ecopoint";
+import { Mode } from "./types/itinerary";
 
 export const ecopoints: Ecopoint[] = [
 		{
@@ -83,7 +84,54 @@ If you plan to travel more often to/in Switzerland, you might want to buy a “<
 				rock: 'Gneiss',
 				bestMonths: ['January', 'February', 'March', 'April', 'May', 'October', 'November', 'December'],
 				topoLink: 'https://www.thecrag.com/en/climbing/switzerland/alpen/tessin/valle-maggia'
-			}
+			},
+			itinerary : {
+				totalDuration: 110,
+					legs: [
+						{
+							mode: Mode.Train,
+							duration: 60, // estimated
+							from: {
+								name: "Zurich",
+								lat: 47.3769,
+								lon: 8.5417
+							},
+							to: {
+								name: "Bellinzona",
+								lat: 46.1957,
+								lon: 9.0238
+							}
+						},
+						{
+							mode: Mode.Train,
+							duration: 30, // estimated
+							from: {
+								name: "Bellinzona",
+								lat: 46.1957,
+								lon: 9.0238
+							},
+							to: {
+								name: "Locarno",
+								lat: 46.1695,
+								lon: 8.7927
+							}
+						},
+						{
+							mode: Mode.Bus,
+							duration: 20,
+							from: {
+								name: "Locarno",
+								lat: 46.1695,
+								lon: 8.7927
+							},
+							to: {
+								name: "Avegno",
+								lat: 46.2082,
+								lon: 8.7477
+							}
+						}
+					]
+				}
 		},
 		{
 			title: 'Climbing trip to Bohuslän (Sweden) by train and bike',
@@ -140,6 +188,53 @@ Other good rest day activities are taking a swim in the fjords (in the evenings 
 				rock: 'Granite',
 				bestMonths: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 				topoLink: 'Click to open...'
+			},
+			itinerary: {
+				totalDuration: 333,
+				legs: [
+					{
+						mode: Mode.Train,
+						duration: 240,
+						from: {
+							name: "Copenhagen",
+							lat: 55.6761,
+							lon: 12.5683
+						},
+						to: {
+							name: "Gothenburg",
+							lat: 57.7089,
+							lon: 11.9746
+						}
+					},
+					{
+						mode: Mode.Train,
+						duration: 78,
+						from: {
+							name: "Gothenburg",
+							lat: 57.7089,
+							lon: 11.9746
+						},
+						to: {
+							name: "Dingle",
+							lat: 58.5254,
+							lon: 11.5781
+						}
+					},
+					{
+						mode: Mode.Bike,
+						duration: 15,
+						from: {
+							name: "Dingle",
+							lat: 58.5254,
+							lon: 11.5781
+						},
+						to: {
+							name: "Häller Climbing Camping",
+							lat: 58.4833,
+							lon: 11.5667
+						}
+					}
+				]
 			}
 		}
 	];

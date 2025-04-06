@@ -52,7 +52,7 @@
 Include info about the train or bus journey: which train(s), train durations, where to change trains, total journey duration.
 
 If you travelled also by bike, please provide information about bike transport in the train. For the cycle path you can either include information in your text: route, duration, hm, kilometres cycled, condition of the cycle path (busy road or cycle path?), which bike you used.
-Or even better, if you have a komoot account, you can mention the rought details in the text and for the precise details share the bike route by sending me your journey. Please make the journey visible for everyone and name the journey in english.`,
+Or even better, if you have a komoot account, you can mention the route details in the text and for the precise details share the bike route by sending me your journey. Please make the journey visible for everyone and name the journey in english.`,
 			whereToStay: `Add information about your accomodation (incl. website if possible).
 If you know of other accomodations or accomodation types, please add this information here as well. (e.g. if you have stayed in a campsite but you know there are also other campsites or also apartments available nearby).`,
 			howToReachCrags:

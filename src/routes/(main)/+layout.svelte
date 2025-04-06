@@ -5,7 +5,6 @@
 
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
-	import Login from '$lib/components/Login.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
 	import { auth } from '$lib/firebase/firebase';
 	import logoAvdstiftung from '$lib/images/logo-avdstiftung.png';
@@ -71,11 +70,11 @@
 				</div>
 			</div>
 		</main>
-		{#if $authStore}
+		<!-- {#if $authStore}
 			Hello
 		{:else}
 			<Login />
-		{/if}
+		{/if} -->
 
 		<hr class="border-t border-black my-4" />
 
