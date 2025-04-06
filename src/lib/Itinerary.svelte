@@ -21,12 +21,12 @@
 </script>
 
 <div class="journey-container">
+	{#if displayTotalDuration}
+		<div class="total-duration">
+			Trip duration: {formatDuration(itinerary.totalDuration)}
+		</div>
+	{/if}
 	<div class="journey-steps">
-		{#if displayTotalDuration}
-			<div class="total-duration">
-				Trip duration: {formatDuration(itinerary.totalDuration)}
-			</div>
-		{/if}
 		{#each itinerary.legs as leg, i}
 			<div class="journey-segment">
 				<div class="location-group">
@@ -180,7 +180,6 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: flex-start;
-			gap: 0rem;
 			padding-inline: 1rem;
 			max-width: 80%; /* Prevent container from becoming too wide */
 		}
